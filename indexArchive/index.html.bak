@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobSnapApp</title>
+  <meta name="description" content="JobSnapApp - Simple, ad-free client & photo management for contractors.">
+  <meta name="author" content="JobSnapApp">
+  <link rel="icon" href="./logo/splash_logo.png" type="image/png">
+  <style>
+    /* base resets */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Lato', sans-serif; /* Consider adding a fallback font like 'sans-serif' */
+      background-color: #f5f5f5;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #EF8219;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 999;
+      padding: 1px 0; /* Vertical padding inside the header */
+                      /* The header's total height will be this padding + image height */
+    }
+    header img {
+      max-height: 320px; /* ADJUST THIS: Desired max height for your logo */
+                         /* Example: If you want logo ~180px, header total height will be ~200px (180 + 10 + 10) */
+      width: auto;
+      display: block; /* Helps with consistent spacing */
+    }
+
+    /* push down main content */
+    main {
+      /* ADJUST THIS: Must be >= total height of the fixed header */
+      /* Example: If header (image + padding) is ~200px high, this should be at least 200px, maybe 205-210px for a little breathing room */
+      padding-top: 350px;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* tagline & download */
+    .tagline {
+      padding: 2rem 1rem;
+      text-align: center;
+      font-weight: bold;
+      font-style: italic;
+    }
+    .download {
+      text-align: center;
+      margin: 1rem 0;
+    }
+    .download a {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #EF8219;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .download a:hover {
+      background: #e56f10;
+      transform: scale(1.05);
+    }
+
+    /* features grid */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .feature {
+      width: 250px;
+      text-align: center;
+    }
+    .feature img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .feature p {
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    /* contact & footer */
+    .contact {
+      text-align: center;
+      padding: 2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* dark mode */
+    body.dark {
+      background-color: #222;
+      color: #eee;
+    }
+    body.dark header { /* Optional: Dark mode header background if desired */
+        /* background-color: #1a1a1a; */
+    }
+    body.dark .download a {
+      color: #fff;
+      background: #444;
+    }
+    body.dark .download a:hover {
+      background: #666;
+    }
+    body.dark footer {
+        color: #aaa;
+    }
+
+
+    /* toggle button */
+    .dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 0.5rem 1rem;
+      background: #EF8219;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1000;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-toggle:hover {
+      background: #e56f10;
+    }
+    body.dark .dark-toggle {
+        background: #444;
+        color: #eee;
+    }
+    body.dark .dark-toggle:hover {
+        background: #666;
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+
+    /* phones (<= 600px) */
+    @media (max-width: 600px) {
+      header {
+        padding: 8px 0; /* Adjust padding for smaller header */
+      }
+      header img {
+        max-height: 100px; /* ADJUST THIS: Smaller logo for mobile */
+                           /* Example: 100px image + 16px padding = ~116px header height */
+      }
+      main {
+        padding-top: 116px; /* ADJUST THIS: Must be >= total height of mobile header */
+      }
+      .tagline {
+        padding: 1.5rem 0.75rem;
+        font-size: 1rem;
+      }
+      .download a {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+      }
+      .features {
+        flex-direction: column;
+        align-items: center; /* Center features when stacked */
+        padding: 1rem;
+      }
+      .feature {
+        width: 90%; /* Or max-width: 300px; etc. */
+        margin: 0 auto;
+      }
+      .contact {
+        padding: 1.5rem 0.5rem;
+      }
+      .dark-toggle {
+        bottom: 10px;
+        right: 10px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* tablets (601px to 900px) */
+    @media (min-width: 601px) and (max-width: 900px) {
+      header img {
+        max-height: 150px; /* ADJUST THIS: Example for tablets */
+                           /* ~150px image + 20px padding = ~170px header */
+      }
+      main {
+        padding-top: 170px; /* ADJUST THIS: Match tablet header height */
+      }
+      .features {
+        gap: 1.5rem;
+      }
+      .feature {
+        width: calc(45% - 0.75rem); /* Adjust width considering the gap */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="./logo/splash_logo.png" alt="JobSnapApp Logo">
+</header>
+
+<main>
+  <section class="tagline">
+    Simple, ad-free client & photo management for contractors.
+  </section>
+
+  <section class="download">
+    <a href="https://www.jobsnapapp.com" target="_blank">
+      Coming Soon to Google Play!
+    </a>
+  </section>
+
+  <section class="tagline"> <!-- Second tagline, ensure this is intended -->
+    Never lose a client photo again!
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <img src="./images/login_screen.png" alt="Login Screen" loading="lazy">
+      <p>Login Screen</p>
+    </div>
+    <div class="feature">
+      <img src="./images/add_client.png" alt="Add Client" loading="lazy">
+      <p>Add Clients Easily</p>
+    </div>
+    <div class="feature">
+      <img src="./images/client_details.png" alt="Client Details" loading="lazy">
+      <p>Client Details View</p>
+    }
+    </div>
+    <div class="feature">
+      <img src="./images/profession.png" alt="Organized by Trade" loading="lazy">
+      <p>Organized by Trade</p>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:jobsnapappinfo@gmail.com">jobsnapappinfo@gmail.com</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 JobSnapApp. All rights reserved.
+  </footer>
+</main>
+
+<button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+  }
+</script>
+
+</body>
+</html>

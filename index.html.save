@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobSnapApp - Effortless Management for Contractors</title>
+    <meta name="description" content="JobSnapApp: Simple, ad-free client & photo management. Never lose a client photo again. Streamline your contracting work.">
+    <meta name="author" content="JobSnapApp">
+    <link rel="icon" href="./logo/favicon.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* === CSS VARIABLES === */
+        :root {
+            --primary-color: #EF8219;
+            --primary-darker: #e56f10;
+            --secondary-color: #2c3e50;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --dark-bg: #222831;
+            --text-light: #f1f1f1;
+            --text-dark: #333;
+            --text-muted: #777;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Open Sans', sans-serif;
+            --border-radius: 8px;
+            --shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --header-height: 70px;
+        }
+
+        /* === GLOBAL RESETS === */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-secondary);
+            background-color: #fff;
+            color: var(--text-dark);
+            line-height: 1.7;
+            transition: background-color 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
+
+        /* === UTILITY CLASSES === */
+        .container { width: 90%; max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+        .section { padding: 80px 0; }
+        .section-title {
+            font-family: var(--font-primary);
+            font-size: 2.5rem; font-weight: 700; color: var(--secondary-color);
+            text-align: center; margin-bottom: 50px; position: relative;
+        }
+        .section-title::after {
+            content: ''; display: block; width: 60px; height: 4px;
+            background-color: var(--primary-color); margin: 15px auto 0; border-radius: 2px;
+        }
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary-color); }
+
+        /* === MAIN CONTENT === */
+        main { padding-top: var(--header-height); }
+
+        /* === HERO SECTION === */
+        .hero {
+            background-color: var(--light-bg);
+            padding: 40px 0;
+            display: flex; align-items: center;
+            min-height: calc(100vh - var(--header-height));
+        }
+        .hero .container { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .hero-content { max-width: 700px; margin-bottom: 20px; }
+        .hero h1 {
+            font-family: var(--font-primary);
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 700; color: var(--secondary-color); line-height: 1.2; margin-bottom: 20px;
+        }
+        .hero p.subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-muted); margin-bottom: 30px; line-height: 1.8; padding: 0 1rem;
+        }
+        .hero-image-container { max-width: 550px; width: 100%; }
+        .hero-image-container img {
+            width: 100%; height: auto; border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* === LOGO STYLING === */
+        .logo-container { display: flex; justify-content: center; align-items: center; margin: 20px 0; }
+        .logo-container img { max-height: 380px; width: auto; flex-shrink: 0; }
+        .logo--light { display: block; }
+        .logo--dark { display: none; }
+
+        /* === BUTTONS === */
+        .btn {
+            display: inline-block; padding: 12px 30px;
+            font-family: var(--font-primary); font-weight: 600; text-decoration: none;
+            border-radius: var(--border-radius); transition: all 0.3s ease;
+            cursor: pointer; border: none; font-size: 1rem;
+        }
+        .btn-primary { background-color: var(--primary-color); color: white; }
+        .btn-primary:hover {
+            background-color: var(--primary-darker); transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(239, 130, 25, 0.3);
+        }
+        .btn-secondary { background-color: white; color: var(--primary-color); border: 2px solid var(--primary-color); }
+        .btn-secondary:hover { background-color: var(--primary-color); color: white; }
+        .cta-buttons .btn { margin: 0 10px; }
+
+        /* === FEATURES SECTION === */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .feature-card {
+            background-color: #fff; padding: 30px; border-radius: var(--border-radius);
+            box-shadow: var(--shadow); text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.12); }
+        .feature-card .icon-placeholder { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; line-height: 1; }
+        .feature-card h3 { font-family: var(--font-primary); font-size: 1.4rem; color: var(--secondary-color); margin-bottom: 10px; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* === SHOWCASE SECTION === */
+        .showcase-item { display: flex; align-items: center; gap: 50px; margin-bottom: 60px; }
+        .showcase-item:nth-child(even) { flex-direction: row-reverse; }
+        .showcase-image { flex: 1; max-width: 50%; }
+        .showcase-image img { width: 100%; border-radius: var(--border-radius); box-shadow: var(--shadow); }
+        .showcase-content { flex: 1; }
+        .showcase-content h3 { font-family: var(--font-primary); font-size: 1.8rem; color: var(--secondary-color); margin-bottom: 15px; }
+        .showcase-content p { margin-bottom: 15px; }
+        .showcase-content ul { list-style: none; padding-left: 0; }
+        .showcase-content ul li { margin-bottom: 8px; position: relative; padding-left: 25px; }
+        .showcase-content ul li::before { content: "✓"; color: var(--primary-color); position: absolute; left: 0; font-weight: bold; }
+
+        /* === CTA SECTION === */
+        .cta-section { background-color: var(--primary-color); color: white; padding: 60px 0; text-align: center; }
+        .cta-section .section-title, .cta-section .section-title::after { color: white; }
+        .cta-section p { font-size: 1.1rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .notify-form {
+            display: flex; justify-content: center; align-items: center;
+            gap: 15px; max-width: 500px; margin: 0 auto;
+        }
+        .form-control {
+            flex-grow: 1; padding: 14px 20px; border-radius: var(--border-radius);
+            border: 1px solid #ddd; font-size: 1rem; font-family: var(--font-secondary);
+        }
+
+        /* === CONTACT SECTION === */
+        .contact-section { background-color: var(--light-bg); }
+        .contact-details p { font-size: 1.1rem; margin-bottom: 10px; }
+        .contact-details a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+        .contact-details a:hover { text-decoration: underline; }
+
+        /* === FOOTER === */
+        footer {
+            background-color: #333; color: #f4f4f4;
+            padding: 30px 0; text-align: center; font-size: 0.9em;
+        }
+        footer .container { max-width: 960px; margin: 0 auto; padding: 0 15px; }
+        .footer-links { display: flex; justify-content: center; align-items: center; margin-bottom: 15px; }
+        .footer-links p { margin: 0; }
+        .footer-links p:not(:last-child) { margin-right: 25px; }
+        footer a { color: #a0c4ff; text-decoration: none; }
+        footer a:hover { text-decoration: underline; color: #bad7ff; }
+        .copyright { margin-bottom: 8px; font-size: 0.85em; color: #ccc; }
+        .tagline { margin-bottom: 0; font-style: italic; color: #ddd; }
+        @media (max-width: 480px) {
+            .footer-links { flex-direction: column; }
+            .footer-links p:not(:last-child) { margin-right: 0; margin-bottom: 10px; }
+        }
+
+        /* === DARK MODE TOGGLE === */
+        .dark-toggle {
+            position: fixed; bottom: 20px; right: 20px;
+            padding: 10px 15px; background: var(--secondary-color); color: white;
+            border: none; border-radius: 50px; cursor: pointer; font-weight: bold;
+            z-index: 1001; box-shadow: 0 2px 10px rgba(0,0,0,0.15); transition: all 0.3s ease; font-size: 0.9rem;
+        }
+        .dark-toggle:hover { transform: scale(1.05); }
+
+        /* === ALERT STYLES === */
+        .alert { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--border-radius); box-shadow: var(--shadow); font-family: var(--font-secondary); font-size: 0.95rem; margin-top: 1.5rem; }
+        .alert-info { background-color: var(--light-bg); color: var(--secondary-color); border-left: 4px solid var(--primary-color); }
+        .alert-success { background-color: #e6f9f0; color: #1a5d43; border-left: 4px solid #4caf50; }
+        .alert-error { background-color: #fdecea; color: #8a1f11; border-left: 4px solid #f44336; }
+
+        /* === DARK MODE STYLES === */
+        body.dark { background-color: var(--dark-bg); color: var(--text-light); }
+        body.dark .hero { background-color: var(--dark-bg); }
+        body.dark .hero h1, body.dark .hero p, body.dark .section-title, body.dark h1, body.dark h2, body.dark h3 { color: var(--text-light); }
+        body.dark .feature-card, body.dark .contact-section { background-color: #2b333e; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        body.dark .feature-card h3, body.dark .showcase-content h3 { color: var(--text-light); }
+        body.dark .btn-secondary { background-color: var(--accent-color); color: white; }
+        body.dark .cta-section .btn-secondary { background-color: white; color: var(--primary-color); border-color: white; }
+        body.dark .cta-section .btn-secondary:hover { background-color: #f0f0f0; }
+        body.dark .dark-toggle { background-color: var(--text-light); color: var(--dark-bg); }
+        body.dark .dark-toggle:hover { background-color: #ddd; }
+        body.dark footer { background-color: #1e242b; color: var(--text-muted); }
+        body.dark .form-control { background-color: #3a434f; color: var(--text-light); border-color: #555; }
+        body.dark .form-control::placeholder { color: #aaa; }
+        body.dark .logo--light { display: none; }
+        body.dark .logo--dark { display: block; }
+
+        /* === GOOGLE PLAY FIXED LINK (light & dark swap) === */
+        .play-store-link {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1002;
+            display: inline-block;
+            background: transparent;
+            line-height: 0;
+        }
+        /* Two images: crisp color for light, crisp white for dark */
+        .play-badge-light, .play-badge-dark { height: 60px; width: auto; display: block; }
+        .play-badge-dark { display: none; }            /* hidden by default */
+        body.dark .play-badge-light { display: none; } /* hide color in dark */
+        body.dark .play-badge-dark { display: block; } /* show white in dark */
+        @media (max-width: 576px) {
+            .play-badge-light, .play-badge-dark { height: 50px; }
+        }
+	.made-in-usa {
+    position: fixed;
+    bottom: 95px; /* pushes it above Play badge */
+    left: 50px;
+    z-index: 1002;
+    background: transparent;
+    line-height: 0;
+}
+
+.made-in-usa img {
+    height: 100px; /* adjust as needed */
+    width: auto;
+    display: block;
+}
+
+@media (max-width: 576px) {
+    .made-in-usa img {
+        height: 35px;
+    }
+}
+    </style>
+</head>
+<body>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <div class="logo-container">
+                        <img src="./logo/splash_logo.png" alt="JobSnapApp Logo" class="logo--light">
+                        <img src="./logo/splash_logo_dark.png" alt="JobSnapApp Logo (dark)" class="logo--dark">
+                    </div>
+                    <h1>Stop Juggling.<br>Start <span class="text-primary">Snapping</span> & <span class="text-primary">Managing</span>.</h1>
+                    <p class="subtitle">JobSnapApp is the dead-simple, ad-free solution for contractors to effortlessly manage clients and job photos. Say goodbye to lost images and hello to streamlined projects.</p>  
+                </div>
+                <div class="hero-image-container" data-aos="fade-left" data-aos-delay="200">
+                    <img src="./images/JobSnapApp_Hero.png" alt="JobSnapApp Interface Mockup">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Why Contractors Love JobSnapApp</h2>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon-placeholder">📸</div>
+                        <h3>Photo Organization, Simplified</h3>
+                        <p>Never lose a client photo again. Snap, tag, and store images directly linked to clients and jobs.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-placeholder">👥</div>
+                        <h3>Effortless Client Management</h3>
+                        <p>Keep all client details, notes, and job history in one organized, easily accessible place.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-placeholder">🛠️</div>
+                        <h3>Organized by Trade</h3>
+                        <p>Perfect for multi-talented contractors. Filter and find information based on your different trades.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-placeholder">🚫📢</div>
+                        <h3>100% Ad-Free Focus</h3>
+                        <p>No distractions. Just a clean, straightforward tool designed to help you get work done efficiently.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="icon-placeholder">☁️</div>
+                        <h3>Secure & Accessible</h3>
+                        <p>Your data is important. We prioritize security and ensure you can access your info when you need it. Simple one click local backups.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="icon-placeholder">📱</div>
+                        <h3>Intuitive & Easy to Use</h3>
+                        <p>Designed for busy contractors on the go. No steep learning curve, just pick it up and start managing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Showcase / How it Works -->
+        <section id="showcase" class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">See JobSnapApp in Action</h2>
+
+                <div class="showcase-item" data-aos="fade-right">
+                    <div class="showcase-image">
+                        <img src="./images/AddClientV2.3.2.png" alt="JobSnapApp Add Client Screen">
+                    </div>
+                    <div class="showcase-content">
+                        <h3>1. Add Clients in Seconds</h3>
+                        <p>Quickly input client details, company information, and contact methods. Import from contacts to save even more time.</p>
+                        <ul>
+                            <li>Name, Company, Phone, Email, Address</li>
+                            <li>Assign to specific trades</li>
+                            <li>Add initial notes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="showcase-item" data-aos="fade-left">
+                    <div class="showcase-image">
+                        <img src="./images/ClientDetailsV2.3.2.png" alt="JobSnapApp Client Details with Photos">
+                    </div>
+                    <div class="showcase-content">
+                        <h3>2. Snap & Link Job Photos</h3>
+                        <p>Document every stage of your project. Take photos directly within the app or upload from your gallery, automatically linked to the right client and job.</p>
+                        <ul>
+                            <li>Before & After shots</li>
+                            <li>Progress documentation</li>
+                            <li>Material receipts or plans</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="showcase-item" data-aos="fade-right">
+                    <div class="showcase-image">
+                        <img src="./images/TradeSelectV2.3.2.png" alt="JobSnapApp Trade Selection Screen">
+                    </div>
+                    <div class="showcase-content">
+                        <h3>3. Stay Organized by Trade</h3>
+                        <p>If you wear multiple hats, JobSnapApp keeps things tidy. Easily view clients and jobs specific to plumbing, electrical, landscaping, and more.</p>
+                        <ul>
+                            <li>Clear separation of work types</li>
+                            <li>Quick filtering for focused views</li>
+                            <li>Reduces clutter and confusion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action / Notify Section -->
+        <section id="notify" class="cta-section">
+            <div class="container" data-aos="zoom-in">
+                <h2 class="section-title">Ready to Simplify Your Workflow?</h2>
+                <p>JobSnapApp is launched now on Google Play! Sign up below to be updated on any new releases or exciting features!.</p>
+                <form class="notify-form" id="notifyForm">
+                    <input type="email" class="form-control" name="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-secondary">Notify Me!</button>
+                </form>
+                <div id="formMessage"></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container text-center" data-aos="fade-up">
+                <h2 class="section-title">Have Questions? Get in Touch!</h2>
+                <div class="contact-details">
+                    <p>We'd love to hear from you. For inquiries, support, or feedback:</p>
+                    <p>Email: <a href="mailto:jobsnapappinfo@gmail.com">jobsnapappinfo@gmail.com</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <p><a href="privacy.html">Privacy Policy</a></p>
+                <p><a href="support.html">Support</a></p>
+            </div>
+            <p class="copyright">&copy; <span id="currentYear"></span> JobSnapApp. All rights reserved.</p>
+            <p class="tagline">Designed for hardworking contractors.</p>
+        </div>
+    </footer>
+    <div class="cross">
+	<img src="./images/cross.pnt" alt="God, Bless the men and women that work hard to keep our great country running. Keep them safe, and draw them to you. Amen."		
+    <div class="made-in-usa">
+    	<img src="./images/merica.png" alt="Made in USA">
+    </div>
+    <!-- Google Play Store Fixed Badge (color for light, white for dark) -->
+    <a href="https://play.google.com/store/apps/details?id=com.jobsnapapp.jobsnapapp" target="_blank" rel="noopener" class="play-store-link" aria-label="Get JobSnapApp on Google Play">
+        <!-- Color badge (light mode) -->
+        <img
+            class="play-badge-light"
+            src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+            alt="Get it on Google Play">
+        <!-- White badge (dark mode) -->
+        <img
+            class="play-badge-dark"
+            src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+            alt="Get it on Google Play (dark)">
+    </a>
+
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+
+    <!-- AOS Library Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Dark Mode Toggle
+        const darkToggle = document.querySelector('.dark-toggle');
+        const body = document.body;
+
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark');
+            darkToggle.textContent = '☀️';
+        } else {
+            darkToggle.textContent = '🌙';
+        }
+
+        function toggleDarkMode() {
+            if (body.classList.contains('dark')) {
+                body.classList.remove('dark');
+                localStorage.setItem('darkMode', 'disabled');
+                darkToggle.textContent = '🌙';
+            } else {
+                body.classList.add('dark');
+                localStorage.setItem('darkMode', 'enabled');
+                darkToggle.textContent = '☀️';
+            }
+        }
+
+        // Current Year for Footer
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        // Notify Form Submission
+        const ENDPOINT = `${window.location.origin}/notify.php`;
+        const form = document.getElementById('notifyForm');
+        const formMessage = document.getElementById('formMessage');
+
+        function showMessage(msg, type) {
+            formMessage.className = 'alert alert-' + type;
+            formMessage.textContent = msg;
+        }
+
+        if (form && formMessage) {
+            form.addEventListener('submit', async e => {
+                e.preventDefault();
+                const data = new FormData(form);
+
+                try {
+                    const res = await fetch(ENDPOINT, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    const contentType = res.headers.get('Content-Type') || '';
+                    if (!contentType.includes('application/json')) {
+                        throw new Error(`Unexpected response type: ${contentType}`);
+                    }
+                    const json = await res.json();
+
+                    if (res.ok && json.success) {
+                        showMessage(`🎉 Thanks! We\'ll notify ${data.get('email')} at launch.`, 'success');
+                        form.reset();
+                    } else if (res.status === 409) {
+                        showMessage(json.error || 'You\'re already on the list.', 'error');
+                    } else if (res.status === 429) {
+                        showMessage(json.error || 'Too many tries—please wait a moment.', 'error');
+                    } else {
+                        showMessage(json.error || `Server error (${res.status})`, 'error');
+                    }
+                } catch (err) {
+                    console.error('Notify error:', err);
+                    showMessage('Sorry, we couldn\'t reach the server. Please try again later.', 'error');
+                }
+
+                // Clear message after 5s
+                setTimeout(() => {
+                    formMessage.className = '';
+                    formMessage.textContent = '';
+                }, 5000);
+            });
+        }
+    </script>
+</body>
+</html>
+
