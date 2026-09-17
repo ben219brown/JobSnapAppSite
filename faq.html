@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobSnap - Frequently Asked Questions (FAQ)</title>
+    <style>
+        :root {
+            --primary-color: #F2780C;
+            --primary-hover: #D96500;
+            --bg-color: #F8F9FA;
+            --card-bg: #FFFFFF;
+            --text-color: #212529;
+            --text-secondary: #6C757D;
+            --border-color: #E9ECEF;
+            --accent-blue: #0D6EFD;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --card-bg: #1E1E1E;
+                --text-color: #F8F9FA;
+                --text-secondary: #ADB5BD;
+                --border-color: #2C2C2C;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .faq-category {
+            margin-bottom: 2rem;
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .faq-card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .faq-answer ul {
+            margin: 0.5rem 0 0;
+            padding-left: 1.25rem;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.25rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>JobSnap FAQ</h1>
+        <p>Frequently Asked Questions & User Guide for Trade Contractors</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Category 1: Getting Started -->
+        <div class="faq-category">
+            <h2 class="category-title">1. Getting Started & Trade Organization</h2>
+
+            <div class="faq-card">
+                <h3 class="faq-question">What is JobSnap?</h3>
+                <p class="faq-answer">
+                    JobSnap is a mobile photo documentation and crew hours management application built specifically for trade contractors (Plumbing, Electrical, HVAC, Landscaping, Carpentry, General Contracting, Realty, and more). It helps you organize job site photos, track employee hours, and auto-backup data to Google Drive.
+                </p>
+            </div>
+
+            <div class="faq-card">
+                <h3 class="faq-question">How do I organize clients by trade?</h3>
+                <p class="faq-answer">
+                    During initial setup, select the trade categories you work in. JobSnap keeps an isolated client directory for each trade. You can switch trades anytime using the navigation drawer or by selecting <strong>Edit Trades</strong> in the menu.
+                </p>
+            </div>
+
+            <div class="faq-card">
+                <h3 class="faq-question">Can I copy a client to another trade?</h3>
+                <p class="faq-answer">
+                    Yes! Long-press any client card on the Client Selection screen and tap <strong>Copy to Another Trade</strong>. You can choose from any of your other active trades to instantly duplicate the client and their contact details.
+                </p>
+            </div>
+        </div>
+
+        <!-- Category 2: Auto-Backup & Storage -->
+        <div class="faq-category">
+            <h2 class="category-title">2. Google Drive Backups & Retention Policy</h2>
+
+            <div class="faq-card">
+                <h3 class="faq-question">How do automated Google Drive backups work?</h3>
+                <p class="faq-answer">
+                    JobSnap uses Android WorkManager to automatically back up your database, photo metadata, custom photo folders, and application settings to a secure <strong>JobSnap Backups</strong> folder in your personal Google Drive account.
+                </p>
+            </div>
+
+            <div class="faq-card">
+                <h3 class="faq-question">How do I configure backup frequency and retention limits?</h3>
+                <div class="faq-answer">
+                    Open <strong>Settings</strong> in JobSnap:
+                    <ul>
+                        <li><strong>Auto-Backup Frequency:</strong> Choose Daily, Weekly, Monthly, or OFF.</li>
+                        <li><strong>Backup Retention Limit:</strong> Set how many recent backups to keep on Google Drive (3, 5, 10, 30, or Unlimited). JobSnap automatically prunes older archives so your storage stays clean.</li>
+                        <li><strong>Backup on Wi-Fi Only:</strong> Toggle ON to save mobile data.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <h3 class="faq-question">Will backing up erase or affect my live app data?</h3>
+                <p class="faq-answer">
+                    No. Backups use non-destructive SQLite WAL (Write-Ahead Logging) checkpointing, so your app data remains 100% active and visible while backing up.
+                </p>
+            </div>
+        </div>
+
+        <!-- Category 3: Crew Hours & Payroll -->
+        <div class="faq-category">
+            <h2 class="category-title">3. Crew Hours & Payroll CSV Export</h2>
+
+            <div class="faq-card">
+                <h3 class="faq-question">How do I track employee time and crew hours?</h3>
+                <p class="faq-answer">
+                    Open any client details page and tap the <strong>Crew Hours (clock icon)</strong> button. Select active crew members, enter daily hours, and tap Save.
+                </p>
+            </div>
+
+            <div class="faq-card">
+                <h3 class="faq-question">How do I export hours for payroll?</h3>
+                <p class="faq-answer">
+                    On the Crew Hours screen, tap <strong>Export Payroll CSV Report</strong>. JobSnap generates a CSV file with employee names, phone numbers, hourly pay rates, daily hours breakdown (Sun–Sat), weekly total hours, and calculated payouts ready to email or open in Excel/Google Sheets.
+                </p>
+            </div>
+
+            <div class="faq-card">
+                <h3 class="faq-question">Can I search crew members or navigate past pay periods?</h3>
+                <p class="faq-answer">
+                    Yes. Use the search bar at the top of the Crew Hours screen to filter crew members by name or phone, and use the <strong>« Month / Month »</strong> and <strong>‹ Prev Week / Next Week ›</strong> buttons to inspect past pay periods.
+                </p>
+            </div>
+        </div>
+
+        <!-- Category 4: Security & Support -->
+        <div class="faq-category">
+            <h2 class="category-title">4. Security, Accounts & Support</h2>
+
+            <div class="faq-card">
+                <h3 class="faq-question">Is my app data secure?</h3>
+                <p class="faq-answer">
+                    Yes. All network communications use TLS 1.2/1.3 (HTTPS) encryption in transit, and credentials use Android EncryptedSharedPreferences (AES-256).
+                </p>
+            </div>
+
+            <div class="faq-card">
+                <h3 class="faq-question">How do I sign out safely?</h3>
+                <p class="faq-answer">
+                    Open the navigation drawer menu and tap <strong>Sign Out</strong>. Your session token is cleared and password or Google Sign-In authentication is required to log back in.
+                </p>
+            </div>
+
+            <div class="faq-card">
+                <h3 class="faq-question">How do I contact support?</h3>
+                <p class="faq-answer">
+                    For questions, feedback, or assistance, visit <a href="https://www.jobsnapapp.com">www.jobsnapapp.com</a> or email us at <a href="mailto:jobsnapappinfo@gmail.com">support@jobsnapapp.com</a>.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 JobSnap. All rights reserved. | <a href="https://www.jobsnapapp.com/privacy.html">Privacy Policy</a> | <a href="https://www.jobsnapapp.com">Home</a></p>
+    </footer>
+
+</body>
+</html>
