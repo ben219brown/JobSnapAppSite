@@ -3,199 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JobSnap - Frequently Asked Questions</title>
+    <title>JobSnap - Frequently Asked Questions & Support</title>
     <style>
+        :root {
+            --primary-color: #F2780C;
+            --primary-hover: #D96500;
+            --bg-color: #F8F9FA;
+            --card-bg: #FFFFFF;
+            --text-color: #212529;
+            --text-secondary: #555555;
+            --border-color: #E0E0E0;
+            --summary-active: #D96500;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --card-bg: #1E1E1E;
+                --text-color: #F8F9FA;
+                --text-secondary: #B0B0B0;
+                --border-color: #2C2C2C;
+                --summary-active: #FF8A00;
+            }
+        }
+
         body {
-            font-family: sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #333;
+
+        header {
+            background: linear-gradient(135deg, #F2780C, #E06000);
+            color: #FFFFFF;
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-        /* Style for section headers */
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
         h2 {
-            font-size: 1.5em; /* Make section titles a bit larger */
-            color: #444;
-            margin-top: 40px; /* More space above section titles */
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eee; /* A slightly more prominent border */
-            padding-bottom: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
         }
-        h2:first-of-type { /* Remove extra top margin from the very first h2 */
-            margin-top: 20px;
+
+        h2:first-of-type {
+            margin-top: 1rem;
         }
 
         details {
-            background: #fff; /* Could also be a slightly different shade like #f9f9f9 */
-            border-radius: 4px;
-            padding: 15px 20px; /* A bit more padding inside details */
-            margin-bottom: 12px; /* Slightly more space between FAQ items */
-            border: 1px solid #ddd;
-            transition: box-shadow 0.2s ease-in-out;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: all 0.2s ease-in-out;
         }
+
         details:hover {
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle hover effect */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
         }
+
         summary {
-            font-weight: bold;
-            font-size: 1.1em; /* Slightly larger summary text */
+            font-weight: 700;
+            font-size: 1.05rem;
             cursor: pointer;
             outline: none;
-            color: #337ab7; /* Make the question text a link-like color */
+            color: var(--text-color);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            transition: transform 0.2s ease;
+        }
+
+        details[open] summary::after {
+            content: "−";
+            transform: rotate(180deg);
+        }
+
         details[open] summary {
             margin-bottom: 10px;
-            color: #23527c; /* Darken summary color when open */
+            color: var(--summary-active);
         }
+
         p, ul {
-            margin-top: 0.5em;
-            color: #555; /* Slightly lighter text for answers */
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
         }
+
         ul {
             padding-left: 20px;
         }
+
         li {
-            margin-bottom: 0.3em;
+            margin-bottom: 0.4rem;
         }
+
+        strong {
+            color: var(--text-color);
+        }
+
         a {
-            color: #007bff;
+            color: var(--primary-color);
             text-decoration: none;
+            font-weight: 600;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         .support-email a {
-            font-weight: bold;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Frequently Asked Questions (FAQ)</h1>
 
-       <section id="general-info">
+    <header>
+        <h1>JobSnapApp Support & FAQ</h1>
+        <p>Effortless Management for Trade Contractors</p>
+    </header>
+
+    <div class="container">
+
+        <!-- General Information -->
+        <section id="general-info">
             <h2>General Information</h2>
+            
             <details>
                 <summary>1. What is JobSnap?</summary>
-                <p>JobSnap is a mobile app designed for contractors to manage job‑site records on the go. Store client contact info, capture site photos, log service notes, and keep everything organized in one secure place.</p>
+                <p>JobSnap is a mobile app designed for trade contractors to manage job-site records on the go. Store client contact info, capture site photos, log service notes, track crew hours, and keep everything organized in one secure place.</p>
             </details>
+
             <details>
                 <summary>2. Which devices does JobSnap support?</summary>
-                <p>JobSnap requires Android&nbsp;6.0 (Marshmallow) or higher. It’s optimized for phones and tablets, and works offline so you can use it even in areas without cell or Wi‑Fi coverage.</p>
+                <p>JobSnap requires <strong>Android 8.0 (Oreo / API 26) or higher</strong> (optimized for Android 15/16). It is designed for phones and tablets, working offline so you can document job sites even without cell or Wi-Fi coverage.</p>
             </details>
         </section>
 
+        <!-- Account & Setup -->
         <section id="account-setup">
             <h2>Account & Setup</h2>
+
             <details>
                 <summary>3. How do I get started?</summary>
-                <p>Install JobSnap from Google&nbsp;Play.</p>
-                <p>Open the app and create a new account (enter a password you’ll remember).</p>
-                <p>Select the trades you work in (e.g. plumbing, HVAC, carpentry).</p>
-                <p>You’re ready to add clients, photos, and service details.</p>
+                <p>1. Install JobSnap from Google Play.</p>
+                <p>2. Open the app and create a new account (enter a password you’ll remember).</p>
+                <p>3. Select the trade categories you work in (e.g., Plumbing, HVAC, Carpentry, Electrical).</p>
+                <p>4. You’re ready to add clients, photos, crew hours, and service details.</p>
             </details>
+
             <details>
                 <summary>4. How do I log in after I’ve signed up?</summary>
-                <p>On the Login screen, enter your password. Once authenticated, you’ll be taken to either the trade‑selection page (if you haven’t yet chosen your trades) or straight into your dashboard.</p>
+                <p>On the Login screen, enter your password or use Google Sign-In / Biometric login. Once authenticated, you’ll be taken straight into your trade dashboard.</p>
             </details>
+
             <details>
                 <summary>5. Can I change my password?</summary>
-                <p>Yes. From the navigation drawer, tap Edit Trades, then choose Change Password. Enter your current password, then type and confirm a new one.</p>
+                <p>Yes. Open the navigation drawer menu and tap <strong>Change Password</strong>. Enter your current password, then type and confirm your new password.</p>
             </details>
+
             <details>
-                <summary>12. Can I customize which trades I track?</summary> <!-- Numbering continues -->
-                <p>Yes—open the navigation drawer and tap Edit Trades. Select or deselect any trades that apply to your business, then tap Save.</p>
+                <summary>6. Can I customize which trades I track?</summary>
+                <p>Yes—open the navigation drawer and tap <strong>Edit Trades</strong>. Select or deselect any trade categories that apply to your business, then tap Confirm.</p>
             </details>
-             <details>
-                <summary>17. How do I enable biometric (fingerprint/face) login?</summary>
-                <p>After your first password sign‑in, you’ll see a prompt to “Enable biometric login” if your device supports it. Tap Enable and follow the on‑screen dialog. Future logins will then let you use your fingerprint or face instead of typing your password.</p>
-            </details>
+
             <details>
-                <summary>18. How can I disable biometric login?</summary>
-                <p>If you’d rather go back to password‑only access, you can:</p>
-                <ul>
-                    <li>Open Android Settings → Apps → JobSnap → Permissions, and revoke biometric access.</li>
-               </ul>
+                <summary>7. How do I enable biometric (fingerprint/face) login?</summary>
+                <p>After your first password sign-in, you’ll see a prompt to enable biometric login if your device supports it. Tap Enable and follow the on-screen dialog. Future logins will then let you use your fingerprint or face instead of typing your password.</p>
             </details>
         </section>
 
+        <!-- Client & Contact Management -->
         <section id="client-management">
             <h2>Client & Contact Management</h2>
+
             <details>
-                <summary>6. How do I add a new client?</summary>
-                <p>Tap the Clients tab on the dashboard.</p>
-                <p>Press the ＋ Add Client button.</p>
-                <p>Fill in name, phone, email, and other details.</p>
-                <p>Tap Save.</p>
+                <summary>8. How do I add a new client?</summary>
+                <p>Select your active trade, tap the <strong>＋ Add Client</strong> button at the bottom-right, fill in the client’s name, phone, email, and address details, then tap Save.</p>
             </details>
+
             <details>
-                <summary>7. How can I import my existing contacts?</summary>
-                <p>Open the navigation drawer and select Import Contacts. Grant access to your phone’s contacts, then choose which contacts to bring into JobSnap.</p>
+                <summary>9. How can I import existing phone contacts?</summary>
+                <p>On the Client Selection screen, tap the <strong>Import Contacts (mini contact icon)</strong> next to the ＋ button. Grant contacts permission, select a contact, and JobSnap will automatically pre-fill their name, phone, and email into the client form.</p>
             </details>
+
             <details>
-                <summary>14. How do I contact a client directly from the app?</summary> <!-- Numbering continues -->
-                <p>In the client’s detail screen, tap the phone or email icon to call, text, or email them without leaving JobSnap.</p>
+                <summary>10. Can I copy a client to another trade?</summary>
+                <p>Yes! Long-press any client card on the Client Selection screen and tap <strong>Copy to Another Trade</strong>. Select from any of your other active trades to instantly duplicate the client and their contact details.</p>
+            </details>
+
+            <details>
+                <summary>11. How do I contact a client directly from the app?</summary>
+                <p>In the client’s card or detail screen, tap the <strong>Call (phone)</strong>, <strong>Email</strong>, or <strong>Location (map)</strong> icons to dial, email, or navigate directly via GPS without leaving JobSnap.</p>
             </details>
         </section>
 
+        <!-- Photos, Notes & App Features -->
         <section id="photos-notes-features">
             <h2>Photos, Notes & App Features</h2>
+
             <details>
-                <summary>8. How do I capture and view job‑site photos?</summary>
-                <p><strong>Capture:</strong> In a client’s detail screen, tap Add Photo to open the camera. Snap your photo, then it’s automatically saved and tagged to that client.</p>
-                <p><strong>View:</strong> Tap the Photos tab to browse thumbnails. Tap any photo to view it full‑screen or swipe to delete/share.</p>
+                <summary>12. How do I capture and view job-site photos?</summary>
+                <p><strong>Capture:</strong> In a client’s detail screen, tap the Camera icon to snap a photo. Photos are automatically saved and organized under that client.</p>
+                <p><strong>Camera Controls:</strong> Tap the camera flip icon in the top corner of the camera screen to toggle between front and rear lenses.</p>
+                <p><strong>View & Zoom:</strong> Tap any photo thumbnail to open the full-screen photo viewer with smooth pinch-to-zoom and single-finger panning.</p>
+                <p><strong>Custom Folders:</strong> Tap the Create Folder icon to organize before-and-after photos into subfolders.</p>
             </details>
+
             <details>
-                <summary>9. How do I record service notes?</summary>
-                <p>Within a client’s detail view, switch to the Services tab. Tap ＋ Add Note, enter what work was done (materials used, hours, etc.), and hit Save.</p>
+                <summary>13. How do I record service notes?</summary>
+                <p>Within a client’s detail view, tap <strong>＋ Add Note</strong> under Service Notes. Each note creates a timestamped card entry that you can edit or delete anytime with confirmation prompts.</p>
             </details>
+
             <details>
-                <summary>15. How do I change the quality of saved photos?</summary> <!-- Numbering continues -->
-                <p>JobSnap now lets you pick your photo resolution to balance image detail against file size. Open the navigation drawer, tap Settings → Photo Quality, and choose Low, Medium, or High. Lower settings use less storage and upload bandwidth.</p>
+                <summary>14. How do I track crew hours and export payroll reports?</summary>
+                <p><strong>Track Hours:</strong> Tap the Crew Hours (clock icon) button on the client detail page, select active crew members, and log daily hours worked.</p>
+                <p><strong>Export CSV:</strong> On the Crew Hours screen, tap <strong>Export Payroll CSV Report</strong> to generate a formatted CSV file (with daily breakdown, hourly rates, and total payouts) ready to email or open in Excel/Google Sheets.</p>
+                <p><strong>Search & Date Navigation:</strong> Use the search bar to filter crew members, and use the month/week buttons to inspect past pay periods.</p>
             </details>
+
             <details>
-                <summary>16. Does JobSnap support dark mode?</summary> <!-- Numbering continues -->
-                <p>Yes—JobSnap uses a switch in the menu to activate/deactivate darkmode!</p>
+                <summary>15. How do I change photo resolution quality?</summary>
+                <p>Open the navigation drawer, tap <strong>Settings → Photo Quality</strong>, and choose Low, Medium, or High to balance image detail against storage size.</p>
+            </details>
+
+            <details>
+                <summary>16. Does JobSnap support dark mode?</summary>
+                <p>Yes—JobSnap includes a dark mode toggle switch directly in the navigation drawer menu.</p>
             </details>
         </section>
 
+        <!-- Data Backup & Security -->
         <section id="data-security">
             <h2>Data Backup & Security</h2>
+
             <details>
-                <summary>10. How do I back up and restore my data?</summary>
-                <p><strong>Backup:</strong> From the navigation drawer, choose Backup. The app will bundle your database and photos into a ZIP you can save or share.</p>
-                <p><strong>Restore:</strong> Select Restore in the drawer, then pick a previously created backup ZIP. You will then be prompted to restore either the entire app, or just a single client.</p>
+                <summary>17. How do Google Drive auto-backups and retention limits work?</summary>
+                <p><strong>Automated Backups:</strong> JobSnap automatically backs up your database, photo metadata, custom photo folders, and settings to a secure <em>JobSnap Backups</em> folder in your Google Drive.</p>
+                <p><strong>Retention Policy:</strong> In Settings, choose your auto-backup frequency (Daily, Weekly, Monthly) and set a <strong>Backup Retention Limit</strong> (3, 5, 10, 30, or Unlimited). JobSnap automatically prunes older archives so your Drive storage stays clean.</p>
+                <p><strong>Data Safety:</strong> Backups use non-destructive SQLite WAL checkpointing, so your live app data remains 100% active and visible while backing up.</p>
             </details>
+
             <details>
-                <summary>11. Is my data secure?</summary>
-                <p>Absolutely. Your password is SHA‑256 hashed and stored using Android’s EncryptedSharedPreferences. The local database and photo files are sandboxed to your app’s private storage.</p>
+                <summary>18. Is my data secure?</summary>
+                <p>Absolutely. Credentials and session tokens are encrypted using Android EncryptedSharedPreferences (AES-256), and all network traffic uses TLS 1.2/1.3 (HTTPS) encryption in transit.</p>
             </details>
         </section>
 
+        <!-- Troubleshooting & Support -->
         <section id="troubleshooting-support">
             <h2>Troubleshooting & Support</h2>
+
             <details>
-                <summary>13. What should I do if I encounter an error?</summary>
-                <p>Make sure you’re running the latest version of JobSnap from Google&nbsp;Play.</p>
-                <p>Restart your device.</p>
-                <p class="support-email">If the problem persists, email us at <a href="mailto:jobsnapappinfo@gmail.com">support@jobsnapapp.com</a> with a brief description and any screenshots. We will do our best to figure it out.</p>
+                <summary>19. What should I do if I encounter an error?</summary>
+                <p>1. Make sure you’re running the latest version of JobSnap from Google Play.</p>
+                <p>2. Restart your device.</p>
+                <p class="support-email">If the problem persists, email us at <a href="mailto:jobsnapappinfo@gmail.com">jobsnapappinfo@gmail.com</a> with a brief description and screenshots. We will do our best to help you right away.</p>
             </details>
         </section>
 
     </div>
+
+    <footer>
+        <p>&copy; 2026 JobSnapApp. All rights reserved. | <a href="https://www.jobsnapapp.com/privacy.html">Privacy Policy</a> | <a href="https://www.jobsnapapp.com">Home</a></p>
+    </footer>
+
 </body>
 </html>
