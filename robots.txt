@@ -4,7 +4,5 @@ Disallow: /index.html.save
 Disallow: /indexArchive/
 Disallow: /lightteamconcept.html
 Disallow: /emails.txt
-Disallow: /notify_rate.log
-Disallow: /notify.php
 
 Sitemap: https://jobsnapapp.com/sitemap.xml
