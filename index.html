@@ -14,10 +14,12 @@
     <meta property="og:image" content="https://jobsnapapp.com/images/JobSnapApp_Hero.png">
     <meta name="author" content="JobSnapApp">
     <link rel="icon" href="./logo/favicon.png" type="image/png">
+    <link rel="preload" as="image" href="./images/JobSnapApp_Hero.png" fetchpriority="high">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- AOS Library for Scroll Animations -->
@@ -329,8 +331,8 @@
             <div class="container">
                 <div class="hero-content" data-aos="fade-up">
                     <div class="logo-container">
-                        <img src="./logo/splash_logo.png" alt="JobSnapApp Logo" class="logo--light">
-                        <img src="./logo/splash_logo_dark.png" alt="JobSnapApp Logo (dark)" class="logo--dark">
+                        <img src="./logo/splash_logo.png" alt="JobSnapApp Logo" class="logo--light" decoding="async">
+                        <img src="./logo/splash_logo_dark.png" alt="JobSnapApp Logo (dark)" class="logo--dark" decoding="async">
                     </div>
                     <h1>Stop Juggling.<br>Start <span class="text-primary">Snapping</span> & <span class="text-primary">Managing</span>.</h1>
                     <p class="subtitle">
@@ -338,7 +340,7 @@
 </p>
                 </div>
                 <div class="hero-image-container" data-aos="fade-left" data-aos-delay="200">
-                    <img src="./images/JobSnapApp_Hero.png" alt="JobSnapApp Interface Mockup">
+                    <img src="./images/JobSnapApp_Hero.png" alt="JobSnapApp contractor client and job photo management interface" loading="eager" fetchpriority="high" decoding="async">
                 </div>
             </div>
         </section>
@@ -389,7 +391,7 @@
 
                 <div class="showcase-item" data-aos="fade-right">
                     <div class="showcase-image">
-                        <img src="./images/AddClientV2.3.2.png" alt="JobSnapApp Add Client Screen">
+                        <img src="./images/AddClientV2.3.2.png" alt="JobSnapApp add-client screen for contractor customer records" loading="lazy" decoding="async">
                     </div>
                     <div class="showcase-content">
                         <h3>1. Add Clients in Seconds</h3>
@@ -404,7 +406,7 @@
 
                 <div class="showcase-item" data-aos="fade-left">
                     <div class="showcase-image">
-                        <img src="./images/ClientDetailsV2.3.2.png" alt="JobSnapApp Client Details with Photos">
+                        <img src="./images/ClientDetailsV2.3.2.png" alt="JobSnapApp client details screen with linked job-site photos" loading="lazy" decoding="async">
                     </div>
                     <div class="showcase-content">
                         <h3>2. Snap & Link Job Photos</h3>
@@ -419,7 +421,7 @@
 
                 <div class="showcase-item" data-aos="fade-right">
                     <div class="showcase-image">
-                        <img src="./images/TradeSelectV2.3.2.png" alt="JobSnapApp Trade Selection Screen">
+                        <img src="./images/TradeSelectV2.3.2.png" alt="JobSnapApp trade selection screen for organizing contractor work" loading="lazy" decoding="async">
                     </div>
                     <div class="showcase-content">
                         <h3>3. Stay Organized by Trade</h3>
@@ -471,10 +473,10 @@
         </div>
     </footer>
     <div class="cross">
-	<img src="./images/cross.png" alt="God, bless these men and woman that work hard to keep our country running. Please keep them safe. Amen">
+	<img src="./images/cross.png" alt="Christian cross" fetchpriority="low" decoding="async">
     </div>
     <div class="made-in-usa">
-    	<img src="./images/merica.png" alt="Made in USA">
+    	<img src="./images/merica.png" alt="Made in USA" fetchpriority="low" decoding="async">
     </div>
     <!-- Google Play Store Fixed Badge (color for light, white for dark) -->
     <a href="https://play.google.com/store/apps/details?id=com.jobsnapapp.jobsnapapp" target="_blank" rel="noopener" class="play-store-link" aria-label="Get JobSnapApp on Google Play">
@@ -482,12 +484,14 @@
         <img
             class="play-badge-light"
             src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-            alt="Get it on Google Play">
+            alt="Get it on Google Play"
+            width="646" height="250" fetchpriority="low" decoding="async">
         <!-- White badge (dark mode) -->
         <img
             class="play-badge-dark"
             src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-            alt="Get it on Google Play (dark)">
+            alt="Get it on Google Play"
+            width="646" height="250" fetchpriority="low" decoding="async">
     </a>
 
     <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
