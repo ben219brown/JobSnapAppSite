@@ -32,6 +32,11 @@ jobs:
 
           curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_8449.jpeg/:/rs=h:100,cg:true,m"             -o hvac-assets/fujitsu-logo.jpg
 
+          # Clean vector brand marks for the equipment-brand section.
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://upload.wikimedia.org/wikipedia/commons/1/16/Bosch-logo.svg"             -o hvac-assets/bosch-logo.svg
+
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://upload.wikimedia.org/wikipedia/commons/5/53/Fujitsu-Logo.svg"             -o hvac-assets/fujitsu-logo.svg
+
           for f in hvac-assets/*; do
             test -s "$f"
             file "$f"
