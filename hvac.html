@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mt Davis HVAC | Heating & Cooling in Meyersdale, PA</title>
+  <meta name="description" content="Professional heating, cooling, mini-split, heat pump, HVAC repair, installation and maintenance services in Meyersdale, PA and surrounding communities.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#173e31">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green:#1f5b43;
+      --green-dark:#12382b;
+      --green-deep:#0c2b22;
+      --blue:#53a9da;
+      --blue-soft:#dff3ff;
+      --orange:#f28a2e;
+      --cream:#f7f8f4;
+      --ink:#17221f;
+      --muted:#64716d;
+      --white:#fff;
+      --line:#dfe6e2;
+      --shadow:0 24px 60px rgba(14,45,34,.14);
+      --shadow-sm:0 12px 30px rgba(14,45,34,.09);
+      --radius:24px;
+      --radius-sm:16px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:"Manrope",sans-serif;
+      background:#fff;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    .container{width:min(1180px,92vw);margin:auto}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:.55rem;
+      text-transform:uppercase;letter-spacing:.14em;
+      font-size:.78rem;font-weight:800;color:var(--green);
+    }
+    .eyebrow:before{content:"";width:28px;height:2px;background:var(--orange);border-radius:2px}
+    h1,h2,h3{margin:0;line-height:1.08}
+    h1,h2{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.015em}
+    h1{font-size:clamp(3rem,7vw,6.4rem)}
+    h2{font-size:clamp(2.2rem,4.5vw,4rem)}
+    h3{font-size:1.25rem}
+    p{margin:0}
+    .section{padding:96px 0}
+    .section-head{max-width:760px;margin-bottom:42px}
+    .section-head.center{text-align:center;margin-inline:auto}
+    .section-head.center .eyebrow{justify-content:center}
+    .section-head p{margin-top:16px;color:var(--muted);font-size:1.03rem}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+      min-height:52px;padding:0 22px;border-radius:999px;
+      font-weight:800;border:2px solid transparent;cursor:pointer;
+      transition:.2s transform,.2s box-shadow,.2s background,.2s color;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--orange);color:#201306;box-shadow:0 10px 28px rgba(242,138,46,.28)}
+    .btn-primary:hover{box-shadow:0 14px 34px rgba(242,138,46,.38)}
+    .btn-light{background:white;color:var(--green-dark)}
+    .btn-outline{border-color:rgba(255,255,255,.55);color:white}
+    .btn-outline:hover{background:white;color:var(--green-dark)}
+    .icon{width:22px;height:22px;display:inline-block}
+    .topbar{
+      background:var(--green-deep);color:#e8f7f0;
+      font-size:.88rem;font-weight:700
+    }
+    .topbar .container{
+      min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:18px
+    }
+    .topbar .urgent{color:#ffd5a7}
+    header{
+      position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);
+      backdrop-filter:blur(12px);border-bottom:1px solid rgba(31,91,67,.1)
+    }
+    .nav{
+      min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:max-content}
+    .brand-mark{
+      width:48px;height:48px;border-radius:14px;background:linear-gradient(145deg,var(--green),var(--green-dark));
+      display:grid;place-items:center;color:white;box-shadow:0 8px 20px rgba(31,91,67,.22)
+    }
+    .brand-mark svg{width:34px;height:34px}
+    .brand-text strong{
+      display:block;font-family:"Oswald";font-size:1.45rem;line-height:1;color:var(--green-dark);letter-spacing:.02em
+    }
+    .brand-text span{display:block;font-size:.69rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-top:5px}
+    nav{display:flex;align-items:center;gap:28px;font-size:.94rem;font-weight:800}
+    nav a{position:relative}
+    nav a:after{
+      content:"";position:absolute;left:0;bottom:-7px;width:0;height:2px;background:var(--orange);transition:.2s
+    }
+    nav a:hover:after{width:100%}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .phone-mini{font-size:.84rem;text-align:right;line-height:1.25;color:var(--muted)}
+    .phone-mini strong{display:block;color:var(--green-dark);font-size:1rem}
+    .mobile-toggle{display:none;border:0;background:transparent;width:44px;height:44px;border-radius:10px;font-size:1.45rem;cursor:pointer}
+    .hero{
+      position:relative;min-height:720px;display:flex;align-items:center;color:white;overflow:hidden;
+      background:
+        radial-gradient(circle at 15% 12%,rgba(83,169,218,.24),transparent 32%),
+        radial-gradient(circle at 90% 10%,rgba(242,138,46,.13),transparent 28%),
+        linear-gradient(115deg,#0a2920 0%,#123d2f 55%,#1f5b43 100%);
+    }
+    .hero:after{
+      content:"";position:absolute;inset:auto -12% -43% auto;width:720px;height:720px;border-radius:50%;
+      border:120px solid rgba(255,255,255,.025)
+    }
+    .hero-grid{
+      position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:60px;
+      padding:70px 0
+    }
+    .hero .eyebrow{color:#c8e8da}
+    .hero-copy h1{max-width:720px;margin:13px 0 22px}
+    .hero-copy h1 span{color:#9dd5f3}
+    .hero-copy>p{max-width:660px;color:#d8e8e2;font-size:1.12rem}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .hero-trust{
+      display:flex;gap:26px;flex-wrap:wrap;margin-top:34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)
+    }
+    .trust-item strong{font-family:"Oswald";font-size:1.65rem;color:#fff;display:block}
+    .trust-item span{font-size:.83rem;color:#bad1c8}
+    .hero-visual{position:relative;min-height:520px}
+    .hero-photo{
+      position:absolute;right:0;top:18px;width:88%;height:430px;object-fit:cover;border-radius:32px;
+      border:7px solid rgba(255,255,255,.12);box-shadow:0 35px 70px rgba(0,0,0,.28)
+    }
+    .hero-badge{
+      position:absolute;left:0;bottom:42px;width:245px;padding:20px;background:#fff;color:var(--ink);
+      border-radius:20px;box-shadow:var(--shadow)
+    }
+    .hero-badge .stars{color:#f2a02d;letter-spacing:.1em}
+    .hero-badge strong{display:block;font-size:1.15rem;margin:5px 0 2px}
+    .hero-badge span{font-size:.82rem;color:var(--muted)}
+    .emergency-chip{
+      position:absolute;right:22px;bottom:2px;background:var(--orange);color:#1d130a;
+      padding:13px 18px;border-radius:999px;font-weight:900;box-shadow:0 12px 30px rgba(0,0,0,.2)
+    }
+    .trust-strip{background:#f4f8f5;border-bottom:1px solid var(--line)}
+    .trust-strip .container{
+      min-height:88px;display:grid;grid-template-columns:repeat(4,1fr);align-items:center
+    }
+    .trust-pill{
+      display:flex;align-items:center;justify-content:center;gap:11px;font-weight:800;color:var(--green-dark);
+      border-right:1px solid var(--line);padding:8px 14px;text-align:center
+    }
+    .trust-pill:last-child{border-right:0}
+    .trust-pill svg{width:24px;height:24px;color:var(--green)}
+    .services{background:#fff}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .service-card{
+      background:var(--cream);border:1px solid #e7ece9;border-radius:var(--radius);padding:30px;
+      transition:.25s transform,.25s box-shadow,.25s border-color;position:relative;overflow:hidden
+    }
+    .service-card:before{
+      content:"";position:absolute;width:100px;height:100px;border-radius:50%;
+      right:-28px;top:-30px;background:rgba(83,169,218,.08)
+    }
+    .service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm);border-color:#c9d8d1}
+    .service-icon{
+      width:54px;height:54px;border-radius:16px;background:#e7f2ed;color:var(--green);
+      display:grid;place-items:center;margin-bottom:20px
+    }
+    .service-icon svg{width:28px;height:28px}
+    .service-card h3{margin-bottom:9px;color:var(--green-dark)}
+    .service-card p{color:var(--muted);font-size:.94rem}
+    .service-card a{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--green);font-weight:800;font-size:.9rem}
+    .split{
+      display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center
+    }
+    .about{background:#f4f8f5}
+    .about-photo{position:relative;min-height:520px}
+    .about-photo img{
+      width:88%;height:470px;object-fit:cover;border-radius:30px;box-shadow:var(--shadow)
+    }
+    .about-card{
+      position:absolute;right:0;bottom:0;width:270px;background:#fff;border-radius:20px;padding:24px;
+      box-shadow:var(--shadow-sm);border:1px solid var(--line)
+    }
+    .about-card strong{display:block;font-family:"Oswald";font-size:2.1rem;color:var(--green)}
+    .about-card span{color:var(--muted);font-size:.9rem}
+    .about-copy p{color:var(--muted);margin-top:18px}
+    .checklist{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 0;padding:0;list-style:none}
+    .checklist li{display:flex;gap:10px;font-weight:700;font-size:.92rem}
+    .checklist li:before{
+      content:"✓";flex:0 0 24px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;
+      background:#e5f3ec;color:var(--green);font-weight:900
+    }
+    .gallery{background:#0f2e25;color:white}
+    .gallery .section-head p{color:#b9cec6}
+    .gallery .eyebrow{color:#bfe5d3}
+    .filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+    .filter-btn{
+      border:1px solid rgba(255,255,255,.2);background:transparent;color:#eaf6f0;
+      padding:10px 16px;border-radius:999px;font-weight:800;cursor:pointer;transition:.2s
+    }
+    .filter-btn:hover,.filter-btn.active{background:#fff;color:var(--green-dark);border-color:#fff}
+    .gallery-note{color:#9eb8ae;font-size:.83rem;margin:-14px 0 26px}
+    .gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .gallery-item{
+      position:relative;grid-column:span 4;height:290px;border-radius:20px;overflow:hidden;
+      cursor:pointer;background:#173f32
+    }
+    .gallery-item.featured{grid-column:span 8;height:380px}
+    .gallery-item.tall{height:380px}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:.4s transform}
+    .gallery-item:hover img{transform:scale(1.045)}
+    .gallery-item:after{
+      content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(3,17,12,.88))
+    }
+    .gallery-caption{position:absolute;z-index:2;left:20px;right:20px;bottom:18px}
+    .gallery-caption .tag{
+      display:inline-flex;padding:5px 9px;border-radius:999px;background:rgba(255,255,255,.16);
+      backdrop-filter:blur(8px);font-size:.69rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800
+    }
+    .gallery-caption strong{display:block;font-size:1.12rem;margin-top:7px}
+    .gallery-item.demo .demo-flag{
+      position:absolute;z-index:3;right:12px;top:12px;padding:5px 9px;border-radius:999px;
+      background:rgba(255,255,255,.92);color:#475650;font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em
+    }
+    .gallery-item.hidden{display:none}
+    .brands{background:#fff}
+    .brand-row{
+      display:flex;align-items:center;justify-content:center;gap:70px;flex-wrap:wrap;
+      margin-top:34px;padding:34px;background:#f8faf8;border:1px solid var(--line);border-radius:24px
+    }
+    .brand-row img{height:54px;width:auto;max-width:210px;object-fit:contain;filter:saturate(.9)}
+    .quote-band{
+      background:linear-gradient(125deg,var(--green),var(--green-dark));color:#fff;padding:72px 0;position:relative;overflow:hidden
+    }
+    .quote-band:after{
+      content:"";position:absolute;right:-100px;top:-170px;width:440px;height:440px;border-radius:50%;
+      border:75px solid rgba(255,255,255,.035)
+    }
+    .quote-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:62px;align-items:center;position:relative;z-index:2}
+    .quote-copy p{color:#c7dbd3;margin:16px 0 26px}
+    .contact-lines{display:grid;gap:13px}
+    .contact-line{display:flex;align-items:center;gap:12px;font-weight:800}
+    .contact-line span{color:#bcd4ca;font-weight:600;font-size:.9rem;display:block}
+    .quote-form{
+      background:#fff;color:var(--ink);padding:30px;border-radius:26px;box-shadow:0 25px 60px rgba(0,0,0,.22)
+    }
+    .quote-form h3{font-size:1.45rem;color:var(--green-dark);margin-bottom:5px}
+    .quote-form>p{font-size:.86rem;color:var(--muted);margin-bottom:20px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;font-weight:800;color:#53625d}
+    .field input,.field select,.field textarea{
+      width:100%;border:1px solid #d7dfdb;background:#fbfcfb;border-radius:12px;padding:12px 13px;outline:0
+    }
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(31,91,67,.1)}
+    .field textarea{min-height:100px;resize:vertical}
+    .form-note{font-size:.72rem;color:#83908c;margin-top:12px}
+    footer{background:#081d17;color:#dbe8e3;padding:54px 0 26px}
+    .footer-grid{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:50px}
+    .footer-brand p{color:#91aaa0;margin-top:14px;max-width:470px;font-size:.9rem}
+    .footer-title{font-weight:900;margin-bottom:13px;color:#fff}
+    .footer-links{display:grid;gap:9px;color:#9eb4ab;font-size:.9rem}
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.1);margin-top:38px;padding-top:20px;
+      display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#789389;font-size:.78rem
+    }
+    .lightbox{
+      position:fixed;z-index:100;inset:0;background:rgba(2,12,8,.92);display:none;align-items:center;justify-content:center;padding:24px
+    }
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:min(1100px,94vw);max-height:85vh;border-radius:16px;box-shadow:0 24px 70px rgba(0,0,0,.45)}
+    .lightbox-close{
+      position:absolute;right:22px;top:18px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.08);color:#fff;font-size:1.5rem;cursor:pointer
+    }
+    .mobile-call{
+      display:none;position:fixed;z-index:45;left:12px;right:12px;bottom:12px;min-height:54px;border-radius:999px;
+      background:var(--orange);color:#1f1306;font-weight:900;align-items:center;justify-content:center;box-shadow:0 12px 35px rgba(0,0,0,.25)
+    }
+    @media(max-width:980px){
+      nav{display:none;position:absolute;left:0;right:0;top:78px;background:#fff;padding:22px 4vw;border-top:1px solid var(--line);box-shadow:var(--shadow-sm);flex-direction:column;align-items:flex-start}
+      nav.open{display:flex}
+      .mobile-toggle{display:block}
+      .nav-actions .phone-mini{display:none}
+      .hero-grid,.split,.quote-grid{grid-template-columns:1fr}
+      .hero{min-height:auto}
+      .hero-visual{min-height:480px}
+      .hero-photo{width:92%}
+      .service-grid{grid-template-columns:repeat(2,1fr)}
+      .trust-strip .container{grid-template-columns:repeat(2,1fr)}
+      .trust-pill:nth-child(2){border-right:0}
+      .trust-pill:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .gallery-item,.gallery-item.featured{grid-column:span 6;height:320px}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .footer-brand{grid-column:1/-1}
+    }
+    @media(max-width:640px){
+      .section{padding:72px 0}
+      .topbar .container{justify-content:center;text-align:center}
+      .topbar .top-hide{display:none}
+      .nav-actions .btn{display:none}
+      .hero-grid{padding:54px 0 70px;gap:34px}
+      .hero-copy>p{font-size:1rem}
+      .hero-actions .btn{width:100%}
+      .hero-trust{gap:20px}
+      .hero-visual{min-height:390px}
+      .hero-photo{height:330px;width:100%;top:0}
+      .hero-badge{left:8px;bottom:4px;width:220px;padding:16px}
+      .emergency-chip{right:8px;bottom:8px;font-size:.75rem}
+      .trust-strip .container{grid-template-columns:1fr}
+      .trust-pill{border-right:0;border-bottom:1px solid var(--line)!important;justify-content:flex-start}
+      .trust-pill:last-child{border-bottom:0!important}
+      .service-grid{grid-template-columns:1fr}
+      .checklist{grid-template-columns:1fr}
+      .about-photo{min-height:420px}
+      .about-photo img{width:100%;height:370px}
+      .about-card{width:230px;right:-2px}
+      .gallery-grid{display:block}
+      .gallery-item,.gallery-item.featured,.gallery-item.tall{height:270px;margin-bottom:14px}
+      .brand-row{gap:34px}
+      .brand-row img{height:42px}
+      .form-grid{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .quote-form{padding:22px}
+      .footer-grid{grid-template-columns:1fr}
+      .footer-brand{grid-column:auto}
+      .mobile-call{display:flex}
+      body{padding-bottom:72px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span class="urgent">24/7 Emergency HVAC Service Available</span>
+      <span class="top-hide">Serving Meyersdale, Somerset County & surrounding communities</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Mt Davis HVAC home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M7 45 24 18l9 14 7-10 17 23H7Z" fill="currentColor" opacity=".96"/>
+            <path d="M38 9v11M32.5 14.5h11M34.2 10.7l7.6 7.6M41.8 10.7l-7.6 7.6" stroke="#9edaff" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>MT DAVIS HVAC</strong>
+          <span>Heating • Cooling • Comfort</span>
+        </span>
+      </a>
+
+      <nav id="mainNav" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#about">Why Mt Davis</a>
+        <a href="#gallery">Our Work</a>
+        <a href="#quote">Free Quote</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="phone-mini">
+          Main Line
+          <strong><a href="tel:+18149266646">(814) 926-6646</a></strong>
+        </div>
+        <a class="btn btn-primary" href="#quote">Request Service</a>
+        <button class="mobile-toggle" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Local HVAC service you can count on</span>
+          <h1>Comfort in every <span>season.</span></h1>
+          <p>Heating, cooling, mini-split, heat pump, repair and maintenance solutions for homes and light commercial properties in Meyersdale and the surrounding area.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:+18149266646">Call (814) 926-6646</a>
+            <a class="btn btn-outline" href="#quote">Get a Free Quote</a>
+          </div>
+          <div class="hero-trust" aria-label="Business highlights">
+            <div class="trust-item"><strong>5.0★</strong><span>Google rating</span></div>
+            <div class="trust-item"><strong>27</strong><span>customer reviews</span></div>
+            <div class="trust-item"><strong>24/7</strong><span>emergency service</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img class="hero-photo" src="https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/68539377310__6098897B-EB96-4F2E-BC2A-4F8FB034.jpeg/%3A/cr%3Dt%3A16.67%25%2Cl%3A0%25%2Cw%3A100%25%2Ch%3A66.67%25/rs%3Dw%3A1200%2Ch%3A800%2Ccg%3Atrue" alt="Fujitsu mini-split outdoor unit installed by Mt Davis HVAC">
+          <div class="hero-badge">
+            <div class="stars">★★★★★</div>
+            <strong>Local reputation. Real results.</strong>
+            <span>Highly rated by customers for responsiveness, communication and quality work.</span>
+          </div>
+          <div class="emergency-chip">Emergency? Call anytime.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Service highlights">
+      <div class="container">
+        <div class="trust-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 7 4v5c0 5-3 8-7 11-4-3-7-6-7-11V6l7-4Z"/><path d="m9 12 2 2 4-5"/></svg>
+          Residential & Light Commercial
+        </div>
+        <div class="trust-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg>
+          24/7 Emergency Availability
+        </div>
+        <div class="trust-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11h18M5 7h14M7 15h10M9 19h6"/></svg>
+          Free Project Quotes
+        </div>
+        <div class="trust-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 8v8l8 5 8-5V8l-8-5Z"/><path d="m8 12 2.5 2.5L16 9"/></svg>
+          Repair • Install • Maintain
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">Complete comfort solutions</span>
+          <h2>Heating & cooling done right.</h2>
+          <p>From a no-heat emergency to a complete system replacement, Mt Davis HVAC provides practical options and straightforward service for the equipment that keeps your property comfortable.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M4.9 6l14.2 12M19.1 6 4.9 18M2 12h20"/></svg>
+            </div>
+            <h3>Air Conditioning</h3>
+            <p>AC diagnostics, repair, replacement and new installation to keep your home comfortable through warm Pennsylvania summers.</p>
+            <a href="#quote">Request AC service →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c4-3 6-6 6-10 0-3-2-6-6-10-4 4-6 7-6 10 0 4 2 7 6 10Z"/><path d="M9 15c.5 1.5 1.5 2.5 3 3"/></svg>
+            </div>
+            <h3>Heating & Furnaces</h3>
+            <p>Furnace troubleshooting, seasonal service, repair and replacement for reliable heat when temperatures drop.</p>
+            <a href="#quote">Request heating service →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="7" rx="2"/><path d="M6 16h12M8 20h8"/></svg>
+            </div>
+            <h3>Mini-Splits & Ductless</h3>
+            <p>Efficient ductless heating and cooling solutions, including mini-split installation for additions, older homes and targeted comfort.</p>
+            <a href="#quote">Ask about mini-splits →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v5h5"/></svg>
+            </div>
+            <h3>Heat Pumps</h3>
+            <p>Heat pump service and installation for efficient year-round heating and cooling with one versatile system.</p>
+            <a href="#quote">Discuss a heat pump →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18v3h3l6.7-6.7a4 4 0 0 0 5-5l-3 3-3-3 3-3Z"/></svg>
+            </div>
+            <h3>Maintenance & Repair</h3>
+            <p>Seasonal tune-ups and prompt repairs designed to catch problems early and keep equipment operating reliably.</p>
+            <a href="#quote">Schedule maintenance →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
+            </div>
+            <h3>Emergency HVAC Service</h3>
+            <p>No heat? No cooling? Emergency service is available when a system failure cannot wait for normal business hours.</p>
+            <a href="tel:+17249536712">Emergency line: (724) 953-6712 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container split">
+        <div class="about-photo">
+          <img loading="lazy" src="https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_7166.jpeg/%3A/cr%3Dt%3A31.25%25%2Cl%3A0%25%2Cw%3A100%25%2Ch%3A37.5%25/rs%3Dw%3A1000%2Ch%3A760%2Ccg%3Atrue" alt="Bosch HVAC equipment installation">
+          <div class="about-card">
+            <strong>Local.</strong>
+            <span>Hands-on service focused on practical solutions, responsive communication and customer comfort.</span>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow">Why Mt Davis HVAC</span>
+          <h2>Professional service without the big-company runaround.</h2>
+          <p>Mt Davis HVAC is a local heating and cooling company serving residential and light commercial customers around Meyersdale. The focus is simple: understand the problem, explain the options and complete the work with care.</p>
+          <p>Whether you are deciding between repair and replacement, planning a mini-split installation or trying to get heat restored quickly, you get direct communication and recommendations built around your property.</p>
+          <ul class="checklist">
+            <li>Free project estimates</li>
+            <li>Emergency availability</li>
+            <li>Heating & cooling repair</li>
+            <li>System installation</li>
+            <li>Mini-split solutions</li>
+            <li>Seasonal maintenance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Project gallery</span>
+          <h2>See the work.</h2>
+          <p>A filterable gallery gives customers a fast way to browse completed installations and service work by project type.</p>
+        </div>
+
+        <div class="filter-row" aria-label="Gallery filters">
+          <button class="filter-btn active" data-filter="all">All Work</button>
+          <button class="filter-btn" data-filter="hvac">HVAC</button>
+          <button class="filter-btn" data-filter="heating">Heating</button>
+          <button class="filter-btn" data-filter="cooling">Cooling</button>
+          <button class="filter-btn" data-filter="minisplit">Mini-Splits</button>
+          <button class="filter-btn" data-filter="maintenance">Maintenance</button>
+        </div>
+        <p class="gallery-note">The first three images are from the current Mt Davis HVAC site. Demo stock images are clearly marked to show how a larger organized gallery could look.</p>
+
+        <div class="gallery-grid">
+          <article class="gallery-item featured" data-category="minisplit cooling hvac">
+            <img loading="lazy" src="https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/68539377310__6098897B-EB96-4F2E-BC2A-4F8FB034.jpeg/%3A/cr%3Dt%3A16.67%25%2Cl%3A0%25%2Cw%3A100%25%2Ch%3A66.67%25/rs%3Dw%3A1200%2Ch%3A800%2Ccg%3Atrue" alt="Fujitsu mini-split exterior unit installation">
+            <div class="gallery-caption"><span class="tag">Mini-Split</span><strong>Fujitsu ductless installation</strong></div>
+          </article>
+
+          <article class="gallery-item tall" data-category="heating hvac">
+            <img loading="lazy" src="https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_4556.jpeg/%3A/cr%3Dt%3A31.25%25%2Cl%3A0%25%2Cw%3A100%25%2Ch%3A37.5%25/rs%3Dw%3A900%2Ch%3A900%2Ccg%3Atrue" alt="Bryant furnace installation">
+            <div class="gallery-caption"><span class="tag">Heating</span><strong>Bryant furnace installation</strong></div>
+          </article>
+
+          <article class="gallery-item" data-category="hvac heating">
+            <img loading="lazy" src="https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_7166.jpeg/%3A/cr%3Dt%3A31.25%25%2Cl%3A0%25%2Cw%3A100%25%2Ch%3A37.5%25/rs%3Dw%3A1000%2Ch%3A700%2Ccg%3Atrue" alt="Bosch HVAC system installation">
+            <div class="gallery-caption"><span class="tag">HVAC</span><strong>Bosch system installation</strong></div>
+          </article>
+
+          <article class="gallery-item demo" data-category="maintenance hvac">
+            <span class="demo-flag">Demo photo</span>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1615309662243-70f6df917b59?auto=format&fit=crop&w=1200&q=80" alt="HVAC service work demo placeholder">
+            <div class="gallery-caption"><span class="tag">Maintenance</span><strong>Seasonal service & diagnostics</strong></div>
+          </article>
+
+          <article class="gallery-item demo" data-category="cooling hvac">
+            <span class="demo-flag">Demo photo</span>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?auto=format&fit=crop&w=1200&q=80" alt="HVAC cooling project demo placeholder">
+            <div class="gallery-caption"><span class="tag">Cooling</span><strong>Cooling system project</strong></div>
+          </article>
+
+          <article class="gallery-item demo" data-category="hvac maintenance">
+            <span class="demo-flag">Demo photo</span>
+            <img loading="lazy" src="https://images.unsplash.com/photo-1667983453881-4992fe86ab1b?auto=format&fit=crop&w=1200&q=80" alt="HVAC installation demo placeholder">
+            <div class="gallery-caption"><span class="tag">HVAC</span><strong>Professional equipment work</strong></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section brands">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">Equipment experience</span>
+          <h2>Quality equipment. Thoughtful installation.</h2>
+          <p>The current Mt Davis HVAC site features Bosch and Fujitsu equipment, including ductless and whole-home comfort solutions.</p>
+        </div>
+        <div class="brand-row">
+          <img loading="lazy" src="https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_8450.jpeg/%3A/rs%3Dh%3A100%2Ccg%3Atrue%2Cm" alt="Bosch">
+          <img loading="lazy" src="https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_8449.jpeg/%3A/rs%3Dh%3A100%2Ccg%3Atrue%2Cm" alt="Fujitsu">
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band" id="quote">
+      <div class="container quote-grid">
+        <div class="quote-copy">
+          <span class="eyebrow" style="color:#c9e9db">Let's solve the comfort problem</span>
+          <h2>Need service or planning an upgrade?</h2>
+          <p>Call for immediate help or send the basics below to start a free quote conversation.</p>
+
+          <div class="contact-lines">
+            <a class="contact-line" href="tel:+18149266646">
+              ☎
+              <div>Main line <span>(814) 926-6646</span></div>
+            </a>
+            <a class="contact-line" href="tel:+17249536712">
+              ⚡
+              <div>Emergency / additional line <span>(724) 953-6712</span></div>
+            </a>
+            <div class="contact-line">
+              ◉
+              <div>Meyersdale, Pennsylvania <span>Serving surrounding communities</span></div>
+            </div>
+          </div>
+        </div>
+
+        <form class="quote-form" id="quoteForm">
+          <h3>Request a Free Quote</h3>
+          <p>Tell us what you are working on and the form will prepare an email with your details.</p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" required autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="service">Service needed</label>
+              <select id="service" name="service">
+                <option>Heating / Furnace</option>
+                <option>Air Conditioning</option>
+                <option>Mini-Split / Ductless</option>
+                <option>Heat Pump</option>
+                <option>Maintenance / Repair</option>
+                <option>New System / Replacement</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="message">Tell us what is going on</label>
+              <textarea id="message" name="message" placeholder="System type, issue, property location, or project details..."></textarea>
+            </div>
+            <div class="field full">
+              <button class="btn btn-primary" type="submit">Prepare Quote Request</button>
+            </div>
+          </div>
+          <div class="form-note">Demo implementation: this opens the visitor's email app. A production version can connect directly to a form service or business inbox.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none"><path d="M7 45 24 18l9 14 7-10 17 23H7Z" fill="currentColor"/><path d="M38 9v11M32.5 14.5h11" stroke="#9edaff" stroke-width="3" stroke-linecap="round"/></svg>
+            </span>
+            <span class="brand-text"><strong style="color:white">MT DAVIS HVAC</strong><span style="color:#86a59a">Heating • Cooling • Comfort</span></span>
+          </a>
+          <p>Heating and cooling service, repair, installation and maintenance for Meyersdale and surrounding Pennsylvania communities.</p>
+        </div>
+
+        <div>
+          <div class="footer-title">Services</div>
+          <div class="footer-links">
+            <a href="#services">Air Conditioning</a>
+            <a href="#services">Heating & Furnaces</a>
+            <a href="#services">Mini-Splits</a>
+            <a href="#services">Heat Pumps</a>
+            <a href="#services">Maintenance</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Contact</div>
+          <div class="footer-links">
+            <a href="tel:+18149266646">(814) 926-6646</a>
+            <a href="tel:+17249536712">(724) 953-6712</a>
+            <a href="#quote">Request a Free Quote</a>
+            <a href="#gallery">View Project Gallery</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Mt Davis HVAC LLC. Demo redesign concept.</span>
+        <span>This preview is intentionally excluded from search engine indexing.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="mobile-call" href="tel:+18149266646">☎ Call Mt Davis HVAC</a>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project photo">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close photo">×</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mainNav = document.getElementById('mainNav');
+    menuBtn.addEventListener('click', () => {
+      const open = mainNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '×' : '☰';
+    });
+    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.textContent = '☰';
+    }));
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        galleryItems.forEach(item => {
+          const cats = item.dataset.category.split(' ');
+          item.classList.toggle('hidden', filter !== 'all' && !cats.includes(filter));
+        });
+      });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+    });
+    function closeLightbox(){ lightbox.classList.remove('open'); lightboxImg.src=''; }
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if(e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+
+    document.getElementById('quoteForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const f = new FormData(e.currentTarget);
+      const subject = encodeURIComponent('Website Quote Request - ' + f.get('service'));
+      const body = encodeURIComponent(
+        'Name: ' + f.get('name') + '\\n' +
+        'Phone: ' + f.get('phone') + '\\n' +
+        'Email: ' + (f.get('email') || '') + '\\n' +
+        'Service: ' + f.get('service') + '\\n\\n' +
+        'Project details:\\n' + (f.get('message') || '')
+      );
+      window.location.href = 'mailto:mtdavishvac@protonmail.com?subject=' + subject + '&body=' + body;
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
