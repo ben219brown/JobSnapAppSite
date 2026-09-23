@@ -1,0 +1,78 @@
+name: One-time JobSnapApp image optimization
+
+on:
+  push:
+    paths:
+      - ".github/workflows/optimize-site-images.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Create optimized WebP assets and update references
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          from PIL import Image
+
+          def webp(src, dst, quality=88, max_side=None):
+              src, dst = Path(src), Path(dst)
+              im = Image.open(src)
+              if max_side and max(im.size) > max_side:
+                  im.thumbnail((max_side, max_side), Image.Resampling.LANCZOS)
+              params = dict(format="WEBP", quality=quality, method=6)
+              if "icc_profile" in im.info:
+                  params["icc_profile"] = im.info["icc_profile"]
+              im.save(dst, **params)
+              print(f"{src}: {src.stat().st_size:,} -> {dst}: {dst.stat().st_size:,} bytes; {im.size}")
+
+          webp("images/JobSnapApp_Hero.png", "images/JobSnapApp_Hero.webp", 88, 1600)
+          webp("images/AddClientV2.3.2.png", "images/AddClientV2.3.2.webp", 90, 1800)
+          webp("images/ClientDetailsV2.3.2.png", "images/ClientDetailsV2.3.2.webp", 90, 1800)
+          webp("images/TradeSelectV2.3.2.png", "images/TradeSelectV2.3.2.webp", 90, 1800)
+          webp("images/cross.png", "images/cross.webp", 88, 512)
+          webp("images/merica.png", "images/merica.webp", 88, 512)
+
+          p = Path("index.html")
+          text = p.read_text(encoding="utf-8")
+          replacements = {
+              "./images/JobSnapApp_Hero.png": "./images/JobSnapApp_Hero.webp",
+              "https://jobsnapapp.com/images/JobSnapApp_Hero.png": "https://jobsnapapp.com/images/JobSnapApp_Hero.webp",
+              "./images/AddClientV2.3.2.png": "./images/AddClientV2.3.2.webp",
+              "./images/ClientDetailsV2.3.2.png": "./images/ClientDetailsV2.3.2.webp",
+              "./images/TradeSelectV2.3.2.png": "./images/TradeSelectV2.3.2.webp",
+              "./images/cross.png": "./images/cross.webp",
+              "./images/merica.png": "./images/merica.webp",
+          }
+          for old, new in replacements.items():
+              text = text.replace(old, new)
+          p.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Commit optimized assets
+        shell: bash
+        run: |
+          if git diff --quiet && [ -z "$(git status --porcelain --untracked-files=all)" ]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "JobSnapApp Automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add images/*.webp index.html
+          git commit -m "Optimize website image payloads"
+          git push
