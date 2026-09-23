@@ -198,6 +198,49 @@
       content:"✓";flex:0 0 24px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;
       background:#e5f3ec;color:var(--green);font-weight:900
     }
+    .reviews-section{background:#fff}
+    .review-summary{
+      display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;
+      margin:-12px 0 34px
+    }
+    .google-mark{
+      display:inline-flex;align-items:center;gap:9px;font-weight:900;color:#26332e
+    }
+    .google-g{
+      width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+      font-weight:900;font-size:1.18rem;color:#4285f4;background:#fff;
+      border:1px solid #dfe6e2;box-shadow:0 4px 12px rgba(0,0,0,.07)
+    }
+    .review-score{font-weight:900;color:var(--green-dark)}
+    .review-score .stars{color:#f2a02d;letter-spacing:.08em;margin-right:6px}
+    .review-viewport{overflow:hidden}
+    .review-track{
+      display:flex;gap:18px;transition:transform .45s ease;will-change:transform
+    }
+    .review-card{
+      flex:0 0 calc((100% - 36px)/3);background:var(--cream);border:1px solid #e4ebe7;
+      border-radius:22px;padding:26px;box-shadow:var(--shadow-sm);min-height:255px;
+      display:flex;flex-direction:column
+    }
+    .review-card .stars{color:#f2a02d;letter-spacing:.08em;font-size:1.05rem}
+    .review-card blockquote{
+      margin:17px 0 22px;font-size:1.02rem;line-height:1.65;color:#33443e;font-weight:600
+    }
+    .review-meta{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .review-meta strong{color:var(--green-dark)}
+    .review-meta span{font-size:.78rem;color:var(--muted)}
+    .review-controls{
+      display:flex;align-items:center;justify-content:center;gap:10px;margin-top:24px
+    }
+    .review-control{
+      width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;
+      color:var(--green-dark);font-size:1.25rem;font-weight:900;cursor:pointer;box-shadow:0 5px 14px rgba(0,0,0,.06)
+    }
+    .review-dots{display:flex;gap:7px}
+    .review-dot{
+      width:8px;height:8px;border-radius:50%;border:0;background:#cbd7d1;padding:0;cursor:pointer
+    }
+    .review-dot.active{background:var(--green);transform:scale(1.25)}
     .gallery{background:#0f2e25;color:white}
     .gallery .section-head p{color:#b9cec6}
     .gallery .eyebrow{color:#bfe5d3}
@@ -310,6 +353,7 @@
       .trust-pill:nth-child(2){border-right:0}
       .trust-pill:nth-child(-n+2){border-bottom:1px solid var(--line)}
       .gallery-item,.gallery-item.featured{grid-column:span 6;height:320px}
+      .review-card{flex:0 0 calc((100% - 18px)/2)}
       .footer-grid{grid-template-columns:1fr 1fr}
       .footer-brand{grid-column:1/-1}
     }
@@ -342,9 +386,20 @@
       .trust-pill:last-child{border-bottom:0!important}
       .service-grid{grid-template-columns:1fr}
       .checklist{grid-template-columns:1fr}
-      .about-photo{min-height:420px}
-      .about-photo img{width:100%;height:370px}
-      .about-card{width:230px;right:-2px}
+      .about-photo{
+        min-height:0;display:flex;flex-direction:column;gap:12px
+      }
+      .about-photo img{
+        position:relative;width:100%;height:320px;object-fit:cover;border-radius:24px
+      }
+      .about-card{
+        position:relative;inset:auto;width:100%;padding:20px;border-radius:18px
+      }
+      .about-card strong{font-size:1.65rem}
+      .about-card span{font-size:.9rem}
+      .review-card{flex:0 0 100%!important;min-height:230px;padding:22px}
+      .review-summary{gap:10px;margin-bottom:26px}
+      .review-score{width:100%;text-align:center}
       .gallery-grid{display:block}
       .gallery-item,.gallery-item.featured,.gallery-item.tall{height:270px;margin-bottom:14px}
       .brand-row{grid-template-columns:1fr;gap:14px;padding:18px}
@@ -545,6 +600,61 @@
       </div>
     </section>
 
+    <section class="section reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">What customers say</span>
+          <h2>5-star local service.</h2>
+          <p>Real feedback from Mt Davis HVAC customers highlights fast response, straightforward communication, fair pricing and dependable workmanship.</p>
+        </div>
+
+        <div class="review-summary">
+          <div class="google-mark"><span class="google-g">G</span> Google Reviews</div>
+          <div class="review-score"><span class="stars">★★★★★</span> 5.0 from 27 reviews</div>
+        </div>
+
+        <div class="review-viewport" id="reviewViewport">
+          <div class="review-track" id="reviewTrack">
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <blockquote>“We lost our furnace on a Sunday… he showed up within 2 hours to troubleshoot and get us running.”</blockquote>
+              <div class="review-meta"><strong>Google Review</strong><span>Emergency heating service</span></div>
+            </article>
+
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <blockquote>“Showed up as he said he would and had me fixed up in no time.”</blockquote>
+              <div class="review-meta"><strong>Google Review</strong><span>Repair service</span></div>
+            </article>
+
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <blockquote>“Awesome quality and installation of our new heating/cooling mini splitter system.”</blockquote>
+              <div class="review-meta"><strong>Google Review</strong><span>Mini-split installation</span></div>
+            </article>
+
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <blockquote>“Worked until 9pm to make sure we had heat.”</blockquote>
+              <div class="review-meta"><strong>Google Review</strong><span>Furnace replacement</span></div>
+            </article>
+
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <blockquote>“Very honest” and “very reasonable prices.”</blockquote>
+              <div class="review-meta"><strong>Google Review</strong><span>Customer experience</span></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="review-controls" aria-label="Review carousel controls">
+          <button class="review-control" id="reviewPrev" type="button" aria-label="Previous reviews">‹</button>
+          <div class="review-dots" id="reviewDots"></div>
+          <button class="review-control" id="reviewNext" type="button" aria-label="Next reviews">›</button>
+        </div>
+      </div>
+    </section>
+
     <section class="section gallery" id="gallery">
       <div class="container">
         <div class="section-head">
@@ -727,6 +837,65 @@
       menuBtn.setAttribute('aria-expanded','false');
       menuBtn.textContent = '☰';
     }));
+
+    function setupReviewCarousel(){
+      const track = document.getElementById('reviewTrack');
+      const viewport = document.getElementById('reviewViewport');
+      const prev = document.getElementById('reviewPrev');
+      const next = document.getElementById('reviewNext');
+      const dotsWrap = document.getElementById('reviewDots');
+      if(!track || !viewport || !prev || !next || !dotsWrap) return;
+
+      const cards = Array.from(track.children);
+      let index = 0;
+      let timer;
+
+      const perView = () => window.innerWidth <= 640 ? 1 : (window.innerWidth <= 980 ? 2 : 3);
+      const maxIndex = () => Math.max(0, cards.length - perView());
+
+      function buildDots(){
+        dotsWrap.innerHTML = '';
+        for(let i=0;i<=maxIndex();i++){
+          const dot = document.createElement('button');
+          dot.className = 'review-dot' + (i===index ? ' active' : '');
+          dot.type = 'button';
+          dot.setAttribute('aria-label','Show review set ' + (i+1));
+          dot.addEventListener('click',()=>{ index=i; render(); restart(); });
+          dotsWrap.appendChild(dot);
+        }
+      }
+
+      function render(){
+        index = Math.min(index,maxIndex());
+        const card = cards[0];
+        const gap = 18;
+        const amount = card ? card.getBoundingClientRect().width + gap : 0;
+        track.style.transform = 'translateX(-' + (index * amount) + 'px)';
+        Array.from(dotsWrap.children).forEach((d,i)=>d.classList.toggle('active',i===index));
+      }
+
+      function step(dir){
+        const max = maxIndex();
+        index = max === 0 ? 0 : (index + dir + max + 1) % (max + 1);
+        render();
+      }
+
+      function restart(){
+        clearInterval(timer);
+        timer = setInterval(()=>step(1),5500);
+      }
+
+      prev.addEventListener('click',()=>{ step(-1); restart(); });
+      next.addEventListener('click',()=>{ step(1); restart(); });
+      viewport.addEventListener('mouseenter',()=>clearInterval(timer));
+      viewport.addEventListener('mouseleave',restart);
+      window.addEventListener('resize',()=>{ buildDots(); render(); });
+
+      buildDots();
+      render();
+      restart();
+    }
+    setupReviewCarousel();
 
     const filterBtns = document.querySelectorAll('.filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
