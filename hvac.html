@@ -233,10 +233,15 @@
     .gallery-item.hidden{display:none}
     .brands{background:#fff}
     .brand-row{
-      display:flex;align-items:center;justify-content:center;gap:70px;flex-wrap:wrap;
-      margin-top:34px;padding:34px;background:#f8faf8;border:1px solid var(--line);border-radius:24px
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:28px;
+      margin-top:34px;padding:38px;background:#fff;border:1px solid var(--line);border-radius:24px;
+      box-shadow:var(--shadow-sm)
     }
-    .brand-row img{height:54px;width:auto;max-width:210px;object-fit:contain;filter:saturate(.9)}
+    .brand-logo-card{
+      min-height:150px;display:flex;align-items:center;justify-content:center;padding:28px;
+      background:#f8faf8;border:1px solid #e7ece9;border-radius:18px
+    }
+    .brand-row img{width:min(300px,82%);height:78px;object-fit:contain;filter:none}
     .quote-band{
       background:linear-gradient(125deg,var(--green),var(--green-dark));color:#fff;padding:72px 0;position:relative;overflow:hidden
     }
@@ -317,10 +322,21 @@
       .hero-copy>p{font-size:1rem}
       .hero-actions .btn{width:100%}
       .hero-trust{gap:20px}
-      .hero-visual{min-height:390px}
-      .hero-photo{height:330px;width:100%;top:0}
-      .hero-badge{left:8px;bottom:4px;width:220px;padding:16px}
-      .emergency-chip{right:8px;bottom:8px;font-size:.75rem}
+      .hero-visual{
+        min-height:0;display:flex;flex-direction:column;gap:12px
+      }
+      .hero-photo{
+        position:relative;inset:auto;width:100%;height:320px;object-fit:cover;
+        border-width:5px;border-radius:24px
+      }
+      .hero-badge{
+        position:relative;inset:auto;width:100%;padding:18px 20px;border-radius:18px
+      }
+      .hero-badge strong{font-size:1rem}
+      .hero-badge span{font-size:.82rem}
+      .emergency-chip{
+        position:relative;inset:auto;width:100%;text-align:center;padding:12px 16px;font-size:.82rem
+      }
       .trust-strip .container{grid-template-columns:1fr}
       .trust-pill{border-right:0;border-bottom:1px solid var(--line)!important;justify-content:flex-start}
       .trust-pill:last-child{border-bottom:0!important}
@@ -331,8 +347,9 @@
       .about-card{width:230px;right:-2px}
       .gallery-grid{display:block}
       .gallery-item,.gallery-item.featured,.gallery-item.tall{height:270px;margin-bottom:14px}
-      .brand-row{gap:34px}
-      .brand-row img{height:42px}
+      .brand-row{grid-template-columns:1fr;gap:14px;padding:18px}
+      .brand-logo-card{min-height:118px;padding:22px}
+      .brand-row img{height:62px;width:min(280px,84%)}
       .form-grid{grid-template-columns:1fr}
       .field.full{grid-column:auto}
       .quote-form{padding:22px}
@@ -573,8 +590,12 @@
           <p>The current Mt Davis HVAC site features Bosch and Fujitsu equipment, including ductless and whole-home comfort solutions.</p>
         </div>
         <div class="brand-row">
-          <img loading="lazy" src="./hvac-assets/bosch-logo.jpg" alt="Bosch">
-          <img loading="lazy" src="./hvac-assets/fujitsu-logo.jpg" alt="Fujitsu">
+          <div class="brand-logo-card">
+            <img loading="lazy" src="./hvac-assets/bosch-logo.svg" alt="Bosch">
+          </div>
+          <div class="brand-logo-card">
+            <img loading="lazy" src="./hvac-assets/fujitsu-logo.svg" alt="Fujitsu">
+          </div>
         </div>
       </div>
     </section>
