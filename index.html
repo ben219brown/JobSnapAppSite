@@ -11,10 +11,10 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="JobSnapApp">
     <meta property="og:url" content="https://jobsnapapp.com/">
-    <meta property="og:image" content="https://jobsnapapp.com/images/JobSnapApp_Hero.webp">
+    <meta property="og:image" content="https://jobsnapapp.com/images/jobsnapapp-site-hero.webp">
     <meta name="author" content="JobSnapApp">
     <link rel="icon" href="./logo/favicon.png" type="image/png">
-    <link rel="preload" as="image" href="./images/JobSnapApp_Hero.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="./images/jobsnapapp-site-hero.webp" fetchpriority="high">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,6 +96,37 @@
         .hero-image-container img {
             width: 100%; height: auto; border-radius: var(--border-radius);
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .hero.hero-graphic {
+            min-height: 0;
+            padding: 34px 0 52px;
+        }
+        .hero.hero-graphic .container {
+            width: min(96%, 1380px);
+            max-width: 1380px;
+        }
+        .hero-banner-link {
+            display: block;
+            width: 100%;
+            line-height: 0;
+        }
+        .hero-banner {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 18px 50px rgba(0,0,0,.16);
+        }
+        .sr-only {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0,0,0,0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
         }
 
         /* === LOGO STYLING === */
@@ -376,21 +407,23 @@
 <body>
     <main>
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero hero-graphic">
             <div class="container">
-                <div class="hero-content" data-aos="fade-up">
-                    <div class="logo-container">
-                        <img src="./logo/splash_logo.png" alt="JobSnapApp Logo" class="logo--light" decoding="async">
-                        <img src="./logo/splash_logo_dark.png" alt="JobSnapApp Logo (dark)" class="logo--dark" decoding="async">
-                    </div>
-                    <h1>Stop Juggling.<br>Start <span class="text-primary">Snapping</span> & <span class="text-primary">Managing</span>.</h1>
-                    <p class="subtitle">
-    JobSnapApp is the simple, ad-free Android app for contractors to manage clients, organize job site photos, keep service notes, schedule jobs, and track employee hours — even when you're working offline.
-</p>
+                <div class="sr-only">
+                    <h1>JobSnapApp — Contractor Client, Job-Site Photo & Work Management</h1>
+                    <p>JobSnapApp helps contractors manage clients, organize job-site photos, keep service notes, schedule jobs, and track employee hours, including offline field access.</p>
                 </div>
-                <div class="hero-image-container" data-aos="fade-left" data-aos-delay="200">
-                    <img src="./images/JobSnapApp_Hero.webp" alt="JobSnapApp contractor client and job photo management interface" loading="eager" fetchpriority="high" decoding="async">
-                </div>
+                <a class="hero-banner-link" href="https://play.google.com/store/apps/details?id=com.jobsnapapp.jobsnapapp" target="_blank" rel="noopener" aria-label="Get JobSnapApp on Google Play">
+                    <img
+                        class="hero-banner"
+                        src="./images/jobsnapapp-site-hero.webp"
+                        width="1280"
+                        height="720"
+                        alt="JobSnapApp contractor app hero showing client management, job-site photos, service notes, scheduling, and crew hours"
+                        loading="eager"
+                        fetchpriority="high"
+                        decoding="async">
+                </a>
             </div>
         </section>
 
