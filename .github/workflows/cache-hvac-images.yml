@@ -1,0 +1,52 @@
+name: Cache Mt Davis HVAC images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/cache-hvac-images.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  cache-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Mt Davis HVAC images
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p hvac-assets
+
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_7166.jpeg/%3A/cr%3Dt%3A31.25%25%2Cl%3A0%25%2Cw%3A100%25%2Ch%3A37.5%25/rs%3Dw%3A600%2Ch%3A300%2Ccg%3Atrue"             -o hvac-assets/bosch-installation.jpg
+
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/68539377310__6098897B-EB96-4F2E-BC2A-4F8FB034.jpeg/%3A/cr%3Dt%3A16.67%25%2Cl%3A0%25%2Cw%3A100%25%2Ch%3A66.67%25/rs%3Dw%3A600%2Ch%3A300%2Ccg%3Atrue"             -o hvac-assets/fujitsu-mini-split.jpg
+
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_4556.jpeg/%3A/cr%3Dt%3A31.25%25%2Cl%3A0%25%2Cw%3A100%25%2Ch%3A37.5%25/rs%3Dw%3A600%2Ch%3A300%2Ccg%3Atrue"             -o hvac-assets/bryant-furnace.jpg
+
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_8450.jpeg/%3A/rs%3Dh%3A100%2Ccg%3Atrue%2Cm"             -o hvac-assets/bosch-logo.jpg
+
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_8449.jpeg/%3A/rs%3Dh%3A100%2Ccg%3Atrue%2Cm"             -o hvac-assets/fujitsu-logo.jpg
+
+          for f in hvac-assets/*; do
+            test -s "$f"
+            file "$f"
+          done
+
+      - name: Commit local copies
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hvac-assets
+          if git diff --cached --quiet; then
+            echo "No image changes to commit."
+            exit 0
+          fi
+          git commit -m "Cache Mt Davis HVAC website images locally"
+          git push
