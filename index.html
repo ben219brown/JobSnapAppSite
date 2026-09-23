@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JobSnapApp - Effortless Management for Contractors</title>
-    <meta name="description" content="JobSnapApp: Simple, ad-free client & photo management. Never lose a client photo again. Streamline your contracting work.">
+    <title>JobSnapApp | Job Site Photo & Client Management App for Contractors</title>
+    <meta name="description" content="Organize job site photos, clients, service notes, schedules and employee hours with JobSnapApp. A simple, ad-free Android app built for contractors and tradespeople.">
     <meta name="author" content="JobSnapApp">
     <link rel="icon" href="./logo/favicon.png" type="image/png">
 
@@ -262,6 +262,43 @@
     </style>
 <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./images/favicon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "@id": "https://jobsnapapp.com/#app",
+  "name": "JobSnapApp",
+  "alternateName": "JobSnapApp – Job Site Photos",
+  "url": "https://jobsnapapp.com/",
+  "installUrl": "https://play.google.com/store/apps/details?id=com.jobsnapapp.jobsnapapp",
+  "operatingSystem": "Android",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Contractor Management",
+  "description": "JobSnapApp is an Android app for contractors to organize clients, job site photos, service notes, job scheduling, and employee hours.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Brown Family Apps",
+    "url": "https://brownfamilyapps.com/"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "url": "https://play.google.com/store/apps/details?id=com.jobsnapapp.jobsnapapp"
+  },
+  "featureList": [
+    "Client management",
+    "Job site photo organization",
+    "Service notes",
+    "Job scheduling",
+    "Employee hours tracking",
+    "Offline access",
+    "Local backups"
+  ]
+}
+</script>
+
 </head>
 <body>
     <main>
@@ -274,7 +311,9 @@
                         <img src="./logo/splash_logo_dark.png" alt="JobSnapApp Logo (dark)" class="logo--dark">
                     </div>
                     <h1>Stop Juggling.<br>Start <span class="text-primary">Snapping</span> & <span class="text-primary">Managing</span>.</h1>
-                    <p class="subtitle">JobSnapApp is the dead-simple, ad-free solution for contractors to effortlessly manage clients and job photos. Say goodbye to lost images and hello to streamlined projects.</p>  
+                    <p class="subtitle">
+    JobSnapApp is the simple, ad-free Android app for contractors to manage clients, organize job site photos, keep service notes, schedule jobs, and track employee hours — even when you're working offline.
+</p>
                 </div>
                 <div class="hero-image-container" data-aos="fade-left" data-aos-delay="200">
                     <img src="./images/JobSnapApp_Hero.png" alt="JobSnapApp Interface Mockup">
@@ -481,14 +520,14 @@
                     const res = await fetch(ENDPOINT, {
                         method: 'POST',
                         body: data,
-                        headers: { 'Accept': 'application/json' }
+                        headers: { 'Accept': 'application/' }
                     });
 
                     const contentType = res.headers.get('Content-Type') || '';
-                    if (!contentType.includes('application/json')) {
+                    if (!contentType.includes('application/')) {
                         throw new Error(`Unexpected response type: ${contentType}`);
                     }
-                    const json = await res.json();
+                    const  = await res.();
 
                     if (res.ok && json.success) {
                         showMessage(`🎉 Thanks! We\'ll notify ${data.get('email')} at launch.`, 'success');
