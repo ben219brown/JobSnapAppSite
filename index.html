@@ -101,7 +101,8 @@
             width: 210px;
             height: auto;
         }
-        .site-logo-dark { display: none; }
+        .site-brand .site-logo-light { display: block; }
+        .site-brand .site-logo-dark { display: none; }
         .site-nav {
             display: flex;
             align-items: center;
@@ -350,8 +351,8 @@
             background: rgba(30,36,43,.96);
             border-bottom-color: rgba(255,255,255,.09);
         }
-        body.dark .site-logo-light { display: none; }
-        body.dark .site-logo-dark { display: block; }
+        body.dark .site-brand .site-logo-light { display: none; }
+        body.dark .site-brand .site-logo-dark { display: block; }
         body.dark .site-nav a { color: var(--text-light); }
         body.dark .site-nav a:hover { color: var(--primary-color); }
 
