@@ -132,31 +132,85 @@
         .feature-card h3 { font-family: var(--font-primary); font-size: 1.4rem; color: var(--secondary-color); margin-bottom: 10px; }
         .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* === SHOWCASE SECTION === */
-        .showcase-item { display: flex; align-items: center; gap: 50px; margin-bottom: 60px; }
-        .showcase-item:nth-child(even) { flex-direction: row-reverse; }
-        .showcase-image { flex: 1; max-width: 50%; }
-        .showcase-image img { width: 100%; border-radius: var(--border-radius); box-shadow: var(--shadow); }
-        .showcase-content { flex: 1; }
-        .showcase-content h3 { font-family: var(--font-primary); font-size: 1.8rem; color: var(--secondary-color); margin-bottom: 15px; }
-        .showcase-content p { margin-bottom: 15px; }
-        .showcase-content ul { list-style: none; padding-left: 0; }
-        .showcase-content ul li { margin-bottom: 8px; position: relative; padding-left: 25px; }
-        .showcase-content ul li::before { content: "✓"; color: var(--primary-color); position: absolute; left: 0; font-weight: bold; }
+        /* === VIDEO + SCREENSHOT SHOWCASE === */
+        .section-intro {
+            max-width: 760px;
+            margin: -25px auto 42px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+        .video-section { background: var(--light-bg); }
+        .video-frame {
+            max-width: 960px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 18px;
+            background: #0b0d10;
+            box-shadow: 0 18px 45px rgba(0,0,0,.18);
+        }
+        .video-frame video {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            background: #0b0d10;
+        }
+        .screenshot-section { background: #fff; }
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
+            align-items: start;
+        }
+        .screenshot-card {
+            margin: 0;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .screenshot-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 26px rgba(0,0,0,.13);
+        }
+        .screenshot-link {
+            display: block;
+            background: #eef1f4;
+            line-height: 0;
+        }
+        .screenshot-link img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .screenshot-card figcaption {
+            padding: 17px 18px 19px;
+        }
+        .screenshot-card h3 {
+            font-family: var(--font-primary);
+            color: var(--secondary-color);
+            font-size: 1.02rem;
+            margin-bottom: 5px;
+        }
+        .screenshot-card p {
+            color: var(--text-muted);
+            font-size: .9rem;
+            line-height: 1.55;
+        }
+        @media (max-width: 920px) {
+            .screenshot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 560px) {
+            .screenshot-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+            .section-intro { margin-top: -28px; }
+        }
 
         /* === CTA SECTION === */
         .cta-section { background-color: var(--primary-color); color: white; padding: 60px 0; text-align: center; }
         .cta-section .section-title, .cta-section .section-title::after { color: white; }
         .cta-section p { font-size: 1.1rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .notify-form {
-            display: flex; justify-content: center; align-items: center;
-            gap: 15px; max-width: 500px; margin: 0 auto;
-        }
-        .form-control {
-            flex-grow: 1; padding: 14px 20px; border-radius: var(--border-radius);
-            border: 1px solid #ddd; font-size: 1rem; font-family: var(--font-secondary);
-        }
-
         /* === CONTACT SECTION === */
         .contact-section { background-color: var(--light-bg); }
         .contact-details p { font-size: 1.1rem; margin-bottom: 10px; }
@@ -190,26 +244,21 @@
         }
         .dark-toggle:hover { transform: scale(1.05); }
 
-        /* === ALERT STYLES === */
-        .alert { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; border-radius: var(--border-radius); box-shadow: var(--shadow); font-family: var(--font-secondary); font-size: 0.95rem; margin-top: 1.5rem; }
-        .alert-info { background-color: var(--light-bg); color: var(--secondary-color); border-left: 4px solid var(--primary-color); }
-        .alert-success { background-color: #e6f9f0; color: #1a5d43; border-left: 4px solid #4caf50; }
-        .alert-error { background-color: #fdecea; color: #8a1f11; border-left: 4px solid #f44336; }
-
         /* === DARK MODE STYLES === */
         body.dark { background-color: var(--dark-bg); color: var(--text-light); }
         body.dark .hero { background-color: var(--dark-bg); }
         body.dark .hero h1, body.dark .hero p, body.dark .section-title, body.dark h1, body.dark h2, body.dark h3 { color: var(--text-light); }
-        body.dark .feature-card, body.dark .contact-section { background-color: #2b333e; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        body.dark .feature-card h3, body.dark .showcase-content h3 { color: var(--text-light); }
+        body.dark .feature-card, body.dark .contact-section, body.dark .screenshot-card { background-color: #2b333e; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        body.dark .video-section { background-color: #1e242b; }
+        body.dark .screenshot-section { background-color: var(--dark-bg); }
+        body.dark .screenshot-card h3 { color: var(--text-light); }
+        body.dark .section-intro, body.dark .screenshot-card p { color: #bfc7d1; }
         body.dark .btn-secondary { background-color: var(--accent-color); color: white; }
         body.dark .cta-section .btn-secondary { background-color: white; color: var(--primary-color); border-color: white; }
         body.dark .cta-section .btn-secondary:hover { background-color: #f0f0f0; }
         body.dark .dark-toggle { background-color: var(--text-light); color: var(--dark-bg); }
         body.dark .dark-toggle:hover { background-color: #ddd; }
         body.dark footer { background-color: #1e242b; color: var(--text-muted); }
-        body.dark .form-control { background-color: #3a434f; color: var(--text-light); border-color: #555; }
-        body.dark .form-control::placeholder { color: #aaa; }
         body.dark .logo--light { display: none; }
         body.dark .logo--dark { display: block; }
 
@@ -394,58 +443,77 @@
             </div>
         </section>
 
-        <!-- App Showcase / How it Works -->
-        <section id="showcase" class="section">
+        <!-- Video Demo -->
+        <section id="demo" class="section video-section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">See JobSnapApp in Action</h2>
-
-                <div class="showcase-item" data-aos="fade-right">
-                    <div class="showcase-image">
-                        <img src="./images/AddClientV2.3.2.webp" alt="JobSnapApp add-client screen for contractor customer records" loading="lazy" decoding="async">
-                    </div>
-                    <div class="showcase-content">
-                        <h3>1. Add Clients in Seconds</h3>
-                        <p>Quickly input client details, company information, and contact methods. Import from contacts to save even more time.</p>
-                        <ul>
-                            <li>Name, Company, Phone, Email, Address</li>
-                            <li>Assign to specific trades</li>
-                            <li>Add initial notes</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="showcase-item" data-aos="fade-left">
-                    <div class="showcase-image">
-                        <img src="./images/ClientDetailsV2.3.2.webp" alt="JobSnapApp client details screen with linked job-site photos" loading="lazy" decoding="async">
-                    </div>
-                    <div class="showcase-content">
-                        <h3>2. Snap & Link Job Photos</h3>
-                        <p>Document every stage of your project. Take photos directly within the app or upload from your gallery, automatically linked to the right client and job.</p>
-                        <ul>
-                            <li>Before & After shots</li>
-                            <li>Progress documentation</li>
-                            <li>Material receipts or plans</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="showcase-item" data-aos="fade-right">
-                    <div class="showcase-image">
-                        <img src="./images/TradeSelectV2.3.2.webp" alt="JobSnapApp trade selection screen for organizing contractor work" loading="lazy" decoding="async">
-                    </div>
-                    <div class="showcase-content">
-                        <h3>3. Stay Organized by Trade</h3>
-                        <p>If you wear multiple hats, JobSnapApp keeps things tidy. Easily view clients and jobs specific to plumbing, electrical, landscaping, and more.</p>
-                        <ul>
-                            <li>Clear separation of work types</li>
-                            <li>Quick filtering for focused views</li>
-                            <li>Reduces clutter and confusion</li>
-                        </ul>
-                    </div>
+                <p class="section-intro" data-aos="fade-up">A 28-second look at client organization, service notes, job photos, crew hours, trade setup, and backup tools.</p>
+                <div class="video-frame" data-aos="zoom-in">
+                    <video controls preload="metadata" playsinline poster="./images/website-2026/jobsnapapp-video-poster.webp">
+                        <source src="./media/jobsnapapp-overview.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
                 </div>
             </div>
         </section>
 
+        <!-- Current App Screens -->
+        <section id="screenshots" class="section screenshot-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Current JobSnapApp Screens</h2>
+                <p class="section-intro" data-aos="fade-up">Real screens from the current app. Select any screenshot to open the full image.</p>
+                <div class="screenshot-grid">
+                    <figure class="screenshot-card" data-aos="fade-up">
+                        <a class="screenshot-link" href="./images/website-2026/01-client-overview.webp" target="_blank" rel="noopener" aria-label="Open JobSnapApp client overview screenshot">
+                            <img src="./images/website-2026/01-client-overview.webp" width="540" height="1200" loading="lazy" decoding="async" alt="JobSnapApp client overview showing contact details, navigation, notes, photos, and client actions">
+                        </a>
+                        <figcaption><h3>Client Overview</h3><p>Client details and job information stay together in one record.</p></figcaption>
+                    </figure>
+                    <figure class="screenshot-card" data-aos="fade-up">
+                        <a class="screenshot-link" href="./images/website-2026/02-service-notes-job-photos.webp" target="_blank" rel="noopener" aria-label="Open JobSnapApp service notes and job photos screenshot">
+                            <img src="./images/website-2026/02-service-notes-job-photos.webp" width="540" height="1200" loading="lazy" decoding="async" alt="JobSnapApp service notes and job photos screen for a contractor client">
+                        </a>
+                        <figcaption><h3>Service Notes + Job Photos</h3><p>Keep what happened on the job beside the photos that document it.</p></figcaption>
+                    </figure>
+                    <figure class="screenshot-card" data-aos="fade-up">
+                        <a class="screenshot-link" href="./images/website-2026/03-crew-hours-payroll.webp" target="_blank" rel="noopener" aria-label="Open JobSnapApp crew hours and payroll screenshot">
+                            <img src="./images/website-2026/03-crew-hours-payroll.webp" width="540" height="1200" loading="lazy" decoding="async" alt="JobSnapApp crew hours screen showing employee time and payroll totals">
+                        </a>
+                        <figcaption><h3>Crew Hours + Payroll</h3><p>Record employee time, review totals, and keep payroll records easier to manage.</p></figcaption>
+                    </figure>
+                    <figure class="screenshot-card" data-aos="fade-up">
+                        <a class="screenshot-link" href="./images/website-2026/04-add-new-client.webp" target="_blank" rel="noopener" aria-label="Open JobSnapApp add new client screenshot">
+                            <img src="./images/website-2026/04-add-new-client.webp" width="540" height="1200" loading="lazy" decoding="async" alt="JobSnapApp add new client form with contractor customer information fields">
+                        </a>
+                        <figcaption><h3>Add a New Client</h3><p>Create a customer record quickly with the information you actually use.</p></figcaption>
+                    </figure>
+                    <figure class="screenshot-card" data-aos="fade-up">
+                        <a class="screenshot-link" href="./images/website-2026/05-plumbing-client-list.webp" target="_blank" rel="noopener" aria-label="Open JobSnapApp plumbing client list screenshot">
+                            <img src="./images/website-2026/05-plumbing-client-list.webp" width="540" height="1200" loading="lazy" decoding="async" alt="JobSnapApp plumbing client list organized by trade">
+                        </a>
+                        <figcaption><h3>Clients by Trade</h3><p>Filter customer records so plumbing, electrical, landscaping, and other work stays separated.</p></figcaption>
+                    </figure>
+                    <figure class="screenshot-card" data-aos="fade-up">
+                        <a class="screenshot-link" href="./images/website-2026/06-landscaping-client-detail.webp" target="_blank" rel="noopener" aria-label="Open JobSnapApp landscaping client detail screenshot">
+                            <img src="./images/website-2026/06-landscaping-client-detail.webp" width="540" height="1200" loading="lazy" decoding="async" alt="JobSnapApp landscaping client detail screen showing a multi-trade customer record">
+                        </a>
+                        <figcaption><h3>Multi-Trade Client Records</h3><p>Keep different kinds of work organized without duplicating the customer information.</p></figcaption>
+                    </figure>
+                    <figure class="screenshot-card" data-aos="fade-up">
+                        <a class="screenshot-link" href="./images/website-2026/07-navigation-backup-menu.webp" target="_blank" rel="noopener" aria-label="Open JobSnapApp navigation and backup menu screenshot">
+                            <img src="./images/website-2026/07-navigation-backup-menu.webp" width="540" height="1200" loading="lazy" decoding="async" alt="JobSnapApp navigation menu with Google Drive backup and restore tools">
+                        </a>
+                        <figcaption><h3>Backup, Restore + Settings</h3><p>Reach Google Drive backup, restore, scheduling, hours, and other tools from one menu.</p></figcaption>
+                    </figure>
+                    <figure class="screenshot-card" data-aos="fade-up">
+                        <a class="screenshot-link" href="./images/website-2026/08-trade-setup.webp" target="_blank" rel="noopener" aria-label="Open JobSnapApp trade setup screenshot">
+                            <img src="./images/website-2026/08-trade-setup.webp" width="540" height="1200" loading="lazy" decoding="async" alt="JobSnapApp trade setup screen for choosing contractor work categories">
+                        </a>
+                        <figcaption><h3>Trade Setup</h3><p>Choose the trades that fit your business and keep the app focused on the work you do.</p></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
 
         <section id="contractor-workflows" class="section">
             <div class="container">
@@ -470,16 +538,12 @@
             </div>
         </section>
 
-        <!-- Call to Action / Notify Section -->
-        <section id="notify" class="cta-section">
+        <!-- Google Play Call to Action -->
+        <section id="download" class="cta-section">
             <div class="container" data-aos="zoom-in">
-                <h2 class="section-title">Ready to Simplify Your Workflow?</h2>
-                <p>JobSnapApp is available now on Google Play. Sign up below for updates on new releases and features.</p>
-                <form class="notify-form" id="notifyForm">
-                    <input type="email" class="form-control" name="email" placeholder="Enter your email address" required>
-                    <button type="submit" class="btn btn-secondary">Notify Me!</button>
-                </form>
-                <div id="formMessage"></div>
+                <h2 class="section-title">Ready to Put Your Job Records in One Place?</h2>
+                <p>JobSnapApp is available now for Android. Organize clients, job-site photos, service notes, schedules, and crew hours without the advertising clutter.</p>
+                <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.jobsnapapp.jobsnapapp" target="_blank" rel="noopener">Get JobSnapApp on Google Play</a>
             </div>
         </section>
 
@@ -561,57 +625,6 @@
 
         // Current Year for Footer
         document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-        // Notify Form Submission
-        const ENDPOINT = `${window.location.origin}/notify.php`;
-        const form = document.getElementById('notifyForm');
-        const formMessage = document.getElementById('formMessage');
-
-        function showMessage(msg, type) {
-            formMessage.className = 'alert alert-' + type;
-            formMessage.textContent = msg;
-        }
-
-        if (form && formMessage) {
-            form.addEventListener('submit', async e => {
-                e.preventDefault();
-                const data = new FormData(form);
-
-                try {
-                    const res = await fetch(ENDPOINT, {
-                        method: 'POST',
-                        body: data,
-                        headers: { 'Accept': 'application/json' }
-                    });
-
-                    const contentType = res.headers.get('Content-Type') || '';
-                    if (!contentType.includes('application/json')) {
-                        throw new Error(`Unexpected response type: ${contentType}`);
-                    }
-                    const json = await res.json();
-
-                    if (res.ok && json.success) {
-                        showMessage(`🎉 Thanks! We\'ll notify ${data.get('email')} at launch.`, 'success');
-                        form.reset();
-                    } else if (res.status === 409) {
-                        showMessage(json.error || 'You\'re already on the list.', 'error');
-                    } else if (res.status === 429) {
-                        showMessage(json.error || 'Too many tries—please wait a moment.', 'error');
-                    } else {
-                        showMessage(json.error || `Server error (${res.status})`, 'error');
-                    }
-                } catch (err) {
-                    console.error('Notify error:', err);
-                    showMessage('Sorry, we couldn\'t reach the server. Please try again later.', 'error');
-                }
-
-                // Clear message after 5s
-                setTimeout(() => {
-                    formMessage.className = '';
-                    formMessage.textContent = '';
-                }, 5000);
-            });
-        }
     </script>
 </body>
 </html>
