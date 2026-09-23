@@ -258,7 +258,6 @@
 @media (max-width: 576px) {
     .made-in-usa img { height: 35px; }
 }
-}
     </style>
 <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./images/favicon.png">
@@ -520,14 +519,14 @@
                     const res = await fetch(ENDPOINT, {
                         method: 'POST',
                         body: data,
-                        headers: { 'Accept': 'application/' }
+                        headers: { 'Accept': 'application/json' }
                     });
 
                     const contentType = res.headers.get('Content-Type') || '';
-                    if (!contentType.includes('application/')) {
+                    if (!contentType.includes('application/json')) {
                         throw new Error(`Unexpected response type: ${contentType}`);
                     }
-                    const  = await res.();
+                    const json = await res.json();
 
                     if (res.ok && json.success) {
                         showMessage(`🎉 Thanks! We\'ll notify ${data.get('email')} at launch.`, 'success');
