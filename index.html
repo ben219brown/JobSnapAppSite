@@ -71,6 +71,60 @@
         .text-center { text-align: center; }
         .text-primary { color: var(--primary-color); }
 
+        /* === SITE HEADER === */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background: rgba(255,255,255,.96);
+            border-bottom: 1px solid rgba(0,0,0,.08);
+            backdrop-filter: blur(12px);
+            z-index: 1100;
+        }
+        .site-header .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .site-brand {
+            display: inline-flex;
+            align-items: center;
+            line-height: 0;
+            flex-shrink: 0;
+        }
+        .site-brand img {
+            display: block;
+            width: 210px;
+            height: auto;
+        }
+        .site-logo-dark { display: none; }
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+        .site-nav a {
+            color: var(--secondary-color);
+            font-family: var(--font-primary);
+            font-weight: 600;
+            font-size: .92rem;
+            text-decoration: none;
+        }
+        .site-nav a:hover { color: var(--primary-color); }
+        @media (max-width: 760px) {
+            .site-brand img { width: 180px; }
+            .site-nav { gap: 14px; }
+            .site-nav a:nth-child(-n+2) { display: none; }
+        }
+        @media (max-width: 440px) {
+            .site-brand img { width: 155px; }
+            .site-nav a { font-size: .82rem; }
+        }
+
         /* === MAIN CONTENT === */
         main { padding-top: var(--header-height); }
 
@@ -292,6 +346,14 @@
         body.dark footer { background-color: #1e242b; color: var(--text-muted); }
         body.dark .logo--light { display: none; }
         body.dark .logo--dark { display: block; }
+        body.dark .site-header {
+            background: rgba(30,36,43,.96);
+            border-bottom-color: rgba(255,255,255,.09);
+        }
+        body.dark .site-logo-light { display: none; }
+        body.dark .site-logo-dark { display: block; }
+        body.dark .site-nav a { color: var(--text-light); }
+        body.dark .site-nav a:hover { color: var(--primary-color); }
 
         /* === GOOGLE PLAY FIXED LINK (light & dark swap) === */
         .play-store-link {
@@ -405,6 +467,20 @@
 
 </head>
 <body>
+    <header class="site-header">
+        <div class="container">
+            <a class="site-brand" href="/" aria-label="JobSnapApp home">
+                <img class="site-logo-light" src="./logo/jobsnapapp-logo-light.webp" width="1080" height="360" alt="JobSnapApp" decoding="async">
+                <img class="site-logo-dark" src="./logo/jobsnapapp-logo-dark.webp" width="1080" height="360" alt="" decoding="async">
+            </a>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="#features">Features</a>
+                <a href="#demo">Demo</a>
+                <a href="#screenshots">Screenshots</a>
+                <a href="#download">Get the App</a>
+            </nav>
+        </div>
+    </header>
     <main>
         <!-- Hero Section -->
         <section class="hero hero-graphic">
