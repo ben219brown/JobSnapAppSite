@@ -22,15 +22,15 @@ jobs:
           set -euo pipefail
           mkdir -p hvac-assets
 
-          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_7166.jpeg/%3A/cr%3Dt%3A31.25%25%2Cl%3A0%25%2Cw%3A100%25%2Ch%3A37.5%25/rs%3Dw%3A600%2Ch%3A300%2Ccg%3Atrue"             -o hvac-assets/bosch-installation.jpg
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_7166.jpeg/:/cr=t:31.25%25,l:0%25,w:100%25,h:37.5%25/rs=w:600,h:300,cg:true"             -o hvac-assets/bosch-installation.jpg
 
-          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/68539377310__6098897B-EB96-4F2E-BC2A-4F8FB034.jpeg/%3A/cr%3Dt%3A16.67%25%2Cl%3A0%25%2Cw%3A100%25%2Ch%3A66.67%25/rs%3Dw%3A600%2Ch%3A300%2Ccg%3Atrue"             -o hvac-assets/fujitsu-mini-split.jpg
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/68539377310__6098897B-EB96-4F2E-BC2A-4F8FB034.jpeg/:/cr=t:16.67%25,l:0%25,w:100%25,h:66.67%25/rs=w:600,h:300,cg:true"             -o hvac-assets/fujitsu-mini-split.jpg
 
-          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_4556.jpeg/%3A/cr%3Dt%3A31.25%25%2Cl%3A0%25%2Cw%3A100%25%2Ch%3A37.5%25/rs%3Dw%3A600%2Ch%3A300%2Ccg%3Atrue"             -o hvac-assets/bryant-furnace.jpg
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_4556.jpeg/:/cr=t:31.25%25,l:0%25,w:100%25,h:37.5%25/rs=w:600,h:300,cg:true"             -o hvac-assets/bryant-furnace.jpg
 
-          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_8450.jpeg/%3A/rs%3Dh%3A100%2Ccg%3Atrue%2Cm"             -o hvac-assets/bosch-logo.jpg
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_8450.jpeg/:/rs=h:100,cg:true,m"             -o hvac-assets/bosch-logo.jpg
 
-          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_8449.jpeg/%3A/rs%3Dh%3A100%2Ccg%3Atrue%2Cm"             -o hvac-assets/fujitsu-logo.jpg
+          curl -fL --retry 3 -A "Mozilla/5.0"             "https://img1.wsimg.com/isteam/ip/6f4de796-417c-45f7-a5b3-d9b71b81499d/IMG_8449.jpeg/:/rs=h:100,cg:true,m"             -o hvac-assets/fujitsu-logo.jpg
 
           for f in hvac-assets/*; do
             test -s "$f"
