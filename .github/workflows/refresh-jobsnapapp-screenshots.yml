@@ -1,0 +1,142 @@
+name: One-time cleanup of JobSnapApp website screenshots
+
+on:
+  push:
+    paths:
+      - ".github/workflows/refresh-jobsnapapp-screenshots.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  clean-screenshots:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Set up Pillow
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Remove video-capture phone corners and unify screenshots
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageDraw
+          import re
+
+          directory = Path("images/website-2026")
+          names = [
+              "01-client-overview.webp",
+              "02-service-notes-job-photos.webp",
+              "03-crew-hours-payroll.webp",
+              "04-add-new-client.webp",
+              "05-plumbing-client-list.webp",
+              "06-landscaping-client-detail.webp",
+              "07-navigation-backup-menu.webp",
+              "08-trade-setup.webp",
+          ]
+          replacements = {}
+          dimensions = {}
+
+          for name in names:
+              source = directory / name
+              with Image.open(source) as original:
+                  image = original.convert("RGB")
+
+              width, height = image.size
+              # Status/navigation areas are native round-screen capture artifacts,
+              # not application UI. Keep the orange app toolbar and bottom controls.
+              top = round(height * (64 / 1080))
+              bottom = round(height * (50 / 1080))
+              lower = height - bottom
+              if name.startswith("03-"):
+                  # The video frame catches the top of the next offscreen card.
+                  # Remove that incomplete sliver without cropping other screens.
+                  lower = height - round(height * (84 / 1080))
+
+              crop = image.crop((0, top, width, lower))
+              target_height = height - top - bottom
+              if crop.height < target_height:
+                  # White is the native Crew Hours page color, not invented UI.
+                  padded = Image.new("RGB", (width, target_height), (255, 255, 255))
+                  padded.paste(crop, (0, 0))
+                  crop = padded
+
+              # Some video frames contain black wedges even after removing the
+              # rounded status and navigation bars. Restrict cleanup to the four
+              # outer edge corners; keep dark app content (e.g. the nav drawer).
+              edge = max(8, round(width * 0.095))
+              def is_black(pixel):
+                  return max(pixel[:3]) <= 38
+              for side in ("left", "right"):
+                  x = 0 if side == "left" else width - 1
+                  near = min(width - 1, edge + 4) if side == "left" else max(0, width - edge - 5)
+                  for y in (0, crop.height - 1):
+                      if is_black(crop.getpixel((x, y))):
+                          sample_y = min(max(y, edge + 5), crop.height - edge - 6)
+                          color = crop.getpixel((near, sample_y))
+                          ImageDraw.floodfill(crop, (x, y), color, thresh=24)
+
+              output = directory / name.replace(".webp", "-clean.webp")
+              crop.save(output, format="WEBP", quality=92, method=6)
+              replacements[name] = output.name
+              dimensions[output.name] = crop.size
+              print(f"{name}: {width}x{height} -> {output.name}: {crop.width}x{crop.height}")
+
+          site = Path("index.html")
+          html = site.read_text(encoding="utf-8")
+          for old, new in replacements.items():
+              html = html.replace(f"./images/website-2026/{old}", f"./images/website-2026/{new}")
+
+          # Update the declared aspect ratio so layout doesn't jump on mobile.
+          for name, (width, height) in dimensions.items():
+              html = re.sub(
+                  r'(<img src="\./images/website-2026/' + re.escape(name) +
+                  r'" )width="540" height="1200"',
+                  lambda m: m.group(1) + f'width="{width}" height="{height}"',
+                  html
+              )
+
+          old_css = '''        .screenshot-link {
+              display: block;
+              background: #eef1f4;
+              line-height: 0;
+          }
+          .screenshot-link img {
+              display: block;
+              width: 100%;
+              height: auto;
+          }'''
+          new_css = '''        .screenshot-link {
+              display: block;
+              background: #141b24;
+              padding: 7px 7px 9px;
+              line-height: 0;
+          }
+          .screenshot-link img {
+              display: block;
+              width: 100%;
+              height: auto;
+              border-radius: 10px 10px 7px 7px;
+              background: #fff;
+          }'''
+          if old_css not in html:
+              raise RuntimeError("Screenshot CSS changed; refusing a partial update.")
+          html = html.replace(old_css, new_css)
+          site.write_text(html, encoding="utf-8")
+          PY
+
+      - name: Commit cleaned real screenshots with matching layout
+        shell: bash
+        run: |
+          git config user.name "JobSnapApp Website"
+          git config user.email "actions@users.noreply.github.com"
+          git add images/website-2026/*-clean.webp index.html
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Clean and reframe eight real JobSnapApp screenshots"
+            git push
+          fi
