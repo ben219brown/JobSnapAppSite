@@ -94,7 +94,7 @@ jobs:
           for name, (width, height) in dimensions.items():
               html = re.sub(
                   r'(<img src="\./images/website-2026/' + re.escape(name) +
-                  r'" )width="\\d+" height="\\d+"',
+                  r'" )width="\d+" height="\d+"',
                   lambda m: m.group(1) + f'width="{width}" height="{height}"',
                   html
               )
