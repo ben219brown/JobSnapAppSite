@@ -49,7 +49,7 @@ jobs:
               # Status/navigation areas are native round-screen capture artifacts,
               # not application UI. Keep the orange app toolbar and bottom controls.
               top = round(height * (64 / 1080))
-              bottom = round(height * (50 / 1080))
+              bottom = round(height * (30 / 1080))
               lower = height - bottom
               if name.startswith("03-"):
                   # The video frame catches the top of the next offscreen card.
@@ -94,7 +94,7 @@ jobs:
           for name, (width, height) in dimensions.items():
               html = re.sub(
                   r'(<img src="\./images/website-2026/' + re.escape(name) +
-                  r'" )width="540" height="1200"',
+                  r'" )width="\\d+" height="\\d+"',
                   lambda m: m.group(1) + f'width="{width}" height="{height}"',
                   html
               )
