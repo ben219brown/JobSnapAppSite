@@ -99,32 +99,26 @@ jobs:
                   html
               )
 
-          old_css = '''        .screenshot-link {
-              display: block;
-              background: #eef1f4;
-              line-height: 0;
-          }
-          .screenshot-link img {
-              display: block;
-              width: 100%;
-              height: auto;
-          }'''
-          new_css = '''        .screenshot-link {
-              display: block;
-              background: #141b24;
-              padding: 7px 7px 9px;
-              line-height: 0;
-          }
-          .screenshot-link img {
-              display: block;
-              width: 100%;
-              height: auto;
-              border-radius: 10px 10px 7px 7px;
-              background: #fff;
-          }'''
-          if old_css not in html:
-              raise RuntimeError("Screenshot CSS changed; refusing a partial update.")
-          html = html.replace(old_css, new_css)
+          start = html.index("        .screenshot-link {")
+          end = html.index("        .screenshot-card figcaption {", start)
+          styled = "\\n".join([
+              "        .screenshot-link {",
+              "            display: block;",
+              "            background: #141b24;",
+              "            padding: 7px 7px 9px;",
+              "            line-height: 0;",
+              "        }",
+              "        .screenshot-link img {",
+              "            display: block;",
+              "            width: 100%;",
+              "            height: auto;",
+              "            border-radius: 10px 10px 7px 7px;",
+              "            background: #fff;",
+              "        }",
+              "",
+              "",
+          ])
+          html = html[:start] + styled + html[end:]
           site.write_text(html, encoding="utf-8")
           PY
 
