@@ -101,7 +101,7 @@ jobs:
 
           start = html.index("        .screenshot-link {")
           end = html.index("        .screenshot-card figcaption {", start)
-          styled = "\\n".join([
+          styled = "\n".join([
               "        .screenshot-link {",
               "            display: block;",
               "            background: #141b24;",
