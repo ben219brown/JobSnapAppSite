@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JobSnapApp Support | Setup, Clients, Photos & Troubleshooting</title>
-    <meta name="description" content="Get help with JobSnapApp setup, accounts, clients, job photos, backups, security, app features, and troubleshooting for contractors.">
+    <title>JobSnapApp Support & FAQ | Clients, Photos, Scheduling, Invoices & Backups</title>
+    <meta name="description" content="JobSnapApp help for trade contractors: getting started, clients, job photos, scheduling, crew hours, invoices, backups, restore, subscriptions, privacy, and troubleshooting.">
     <link rel="canonical" href="https://jobsnapapp.com/support.html">
-    <meta property="og:title" content="JobSnapApp Support | Setup, Clients, Photos & Troubleshooting">
-    <meta property="og:description" content="Help with JobSnapApp setup, accounts, clients, job photos, backups, security, and troubleshooting.">
+    <meta property="og:title" content="JobSnapApp Support & FAQ">
+    <meta property="og:description" content="Help with JobSnapApp clients, job photos, scheduling, crew hours, invoices, backups, restore, subscriptions, privacy, and troubleshooting.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="JobSnapApp">
     <meta property="og:url" content="https://jobsnapapp.com/support.html">
@@ -21,6 +21,7 @@
             --text-secondary: #555555;
             --border-color: #E0E0E0;
             --summary-active: #D96500;
+            --soft-accent: #FFF4E8;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -31,8 +32,11 @@
                 --text-secondary: #B0B0B0;
                 --border-color: #2C2C2C;
                 --summary-active: #FF8A00;
+                --soft-accent: #2A2118;
             }
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -60,14 +64,39 @@
 
         header p {
             margin: 0.5rem 0 0;
-            font-size: 1.1rem;
+            font-size: 1.08rem;
             opacity: 0.95;
         }
 
         .container {
-            max-width: 850px;
+            max-width: 900px;
             margin: 2rem auto;
             padding: 0 1.5rem;
+        }
+
+        .intro {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 10px;
+            margin: 1.25rem 0 2rem;
+        }
+
+        .quick-links a {
+            display: block;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 12px;
+            text-align: center;
         }
 
         h2 {
@@ -78,11 +107,10 @@
             margin-bottom: 1rem;
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 0.5rem;
+            scroll-margin-top: 1rem;
         }
 
-        h2:first-of-type {
-            margin-top: 1rem;
-        }
+        h2:first-of-type { margin-top: 1rem; }
 
         details {
             background-color: var(--card-bg);
@@ -109,11 +137,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 1rem;
         }
 
-        summary::-webkit-details-marker {
-            display: none;
-        }
+        summary::-webkit-details-marker { display: none; }
 
         summary::after {
             content: "+";
@@ -121,6 +148,7 @@
             font-weight: bold;
             color: var(--primary-color);
             transition: transform 0.2s ease;
+            flex: 0 0 auto;
         }
 
         details[open] summary::after {
@@ -133,24 +161,18 @@
             color: var(--summary-active);
         }
 
-        p, ul {
+        p, ul, ol {
             margin-top: 0.5rem;
             margin-bottom: 0.5rem;
             color: var(--text-secondary);
             font-size: 1rem;
         }
 
-        ul {
-            padding-left: 20px;
-        }
+        ul, ol { padding-left: 22px; }
 
-        li {
-            margin-bottom: 0.4rem;
-        }
+        li { margin-bottom: 0.4rem; }
 
-        strong {
-            color: var(--text-color);
-        }
+        strong { color: var(--text-color); }
 
         a {
             color: var(--primary-color);
@@ -158,8 +180,13 @@
             font-weight: 600;
         }
 
-        a:hover {
-            text-decoration: underline;
+        a:hover { text-decoration: underline; }
+
+        .note {
+            background: var(--soft-accent);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 10px;
         }
 
         .support-email a {
@@ -179,155 +206,336 @@
 </head>
 <body>
 
-    <header>
-        <h1>JobSnapApp Support & FAQ</h1>
-        <p>Effortless Management for Trade Contractors</p>
-    </header>
+<header>
+    <h1>JobSnapApp Support & FAQ</h1>
+    <p>Practical help for contractors using JobSnapApp in the field</p>
+</header>
 
-    <div class="container">
-
-        <!-- General Information -->
-        <section id="general-info">
-            <h2>General Information</h2>
-            
-            <details>
-                <summary>1. What is JobSnapApp?</summary>
-                <p>JobSnapApp is a mobile app designed for trade contractors to manage job-site records on the go. Store client contact info, capture site photos, log service notes, track crew hours, and keep everything organized in one secure place.</p>
-            </details>
-
-            <details>
-                <summary>2. Which devices does JobSnapApp support?</summary>
-                <p>JobSnapApp requires <strong>Android 8.0 (Oreo / API 26) or higher</strong> (optimized for Android 15/16). It is designed for phones and tablets, working offline so you can document job sites even without cell or Wi-Fi coverage.</p>
-            </details>
-        </section>
-
-        <!-- Account & Setup -->
-        <section id="account-setup">
-            <h2>Account & Setup</h2>
-
-            <details>
-                <summary>3. How do I get started?</summary>
-                <p>1. Install JobSnapApp from Google Play.</p>
-                <p>2. Open the app and create a new account (enter a password you’ll remember).</p>
-                <p>3. Select the trade categories you work in (e.g., Plumbing, HVAC, Carpentry, Electrical).</p>
-                <p>4. You’re ready to add clients, photos, crew hours, and service details.</p>
-            </details>
-
-            <details>
-                <summary>4. How do I log in after I’ve signed up?</summary>
-                <p>On the Login screen, enter your password or use Google Sign-In / Biometric login. Once authenticated, you’ll be taken straight into your trade dashboard.</p>
-            </details>
-
-            <details>
-                <summary>5. Can I change my password?</summary>
-                <p>Yes. Open the navigation drawer menu and tap <strong>Change Password</strong>. Enter your current password, then type and confirm your new password.</p>
-            </details>
-
-            <details>
-                <summary>6. Can I customize which trades I track?</summary>
-                <p>Yes—open the navigation drawer and tap <strong>Edit Trades</strong>. Select or deselect any trade categories that apply to your business, then tap Confirm.</p>
-            </details>
-
-            <details>
-                <summary>7. How do I enable biometric (fingerprint/face) login?</summary>
-                <p>After your first password sign-in, you’ll see a prompt to enable biometric login if your device supports it. Tap Enable and follow the on-screen dialog. Future logins will then let you use your fingerprint or face instead of typing your password.</p>
-            </details>
-        </section>
-
-        <!-- Client & Contact Management -->
-        <section id="client-management">
-            <h2>Client & Contact Management</h2>
-
-            <details>
-                <summary>8. How do I add a new client?</summary>
-                <p>Select your active trade, tap the <strong>＋ Add Client</strong> button at the bottom-right, fill in the client’s name, phone, email, and address details, then tap Save.</p>
-            </details>
-
-            <details>
-                <summary>9. How can I import existing phone contacts?</summary>
-                <p>On the Client Selection screen, tap the <strong>Import Contacts (mini contact icon)</strong> next to the ＋ button. Grant contacts permission, select a contact, and JobSnapApp will automatically pre-fill their name, phone, and email into the client form.</p>
-            </details>
-
-            <details>
-                <summary>10. Can I copy a client to another trade?</summary>
-                <p>Yes! Long-press any client card on the Client Selection screen and tap <strong>Copy to Another Trade</strong>. Select from any of your other active trades to instantly duplicate the client and their contact details.</p>
-            </details>
-
-            <details>
-                <summary>11. How do I contact a client directly from the app?</summary>
-                <p>In the client’s card or detail screen, tap the <strong>Call (phone)</strong>, <strong>Email</strong>, or <strong>Location (map)</strong> icons to dial, email, or navigate directly via GPS without leaving JobSnapApp.</p>
-            </details>
-        </section>
-
-        <!-- Photos, Notes & App Features -->
-        <section id="photos-notes-features">
-            <h2>Photos, Notes & App Features</h2>
-
-            <details>
-                <summary>12. How do I capture and view job-site photos?</summary>
-                <p><strong>Capture:</strong> In a client’s detail screen, tap the Camera icon to snap a photo. Photos are automatically saved and organized under that client.</p>
-                <p><strong>Camera Controls:</strong> Tap the camera flip icon in the top corner of the camera screen to toggle between front and rear lenses.</p>
-                <p><strong>View & Zoom:</strong> Tap any photo thumbnail to open the full-screen photo viewer with smooth pinch-to-zoom and single-finger panning.</p>
-                <p><strong>Custom Folders:</strong> Tap the Create Folder icon to organize before-and-after photos into subfolders.</p>
-            </details>
-
-            <details>
-                <summary>13. How do I record service notes?</summary>
-                <p>Within a client’s detail view, tap <strong>＋ Add Note</strong> under Service Notes. Each note creates a timestamped card entry that you can edit or delete anytime with confirmation prompts.</p>
-            </details>
-
-            <details>
-                <summary>14. How do I track crew hours and export payroll reports?</summary>
-                <p><strong>Track Hours:</strong> Tap the Crew Hours (clock icon) button on the client detail page, select active crew members, and log daily hours worked.</p>
-                <p><strong>Export CSV:</strong> On the Crew Hours screen, tap <strong>Export Payroll CSV Report</strong> to generate a formatted CSV file (with daily breakdown, hourly rates, and total payouts) ready to email or open in Excel/Google Sheets.</p>
-                <p><strong>Search & Date Navigation:</strong> Use the search bar to filter crew members, and use the month/week buttons to inspect past pay periods.</p>
-            </details>
-
-            <details>
-                <summary>15. How do I change photo resolution quality?</summary>
-                <p>Open the navigation drawer, tap <strong>Settings → Photo Quality</strong>, and choose Low, Medium, or High to balance image detail against storage size.</p>
-            </details>
-
-            <details>
-                <summary>16. Does JobSnapApp support dark mode?</summary>
-                <p>Yes—JobSnapApp includes a dark mode toggle switch directly in the navigation drawer menu.</p>
-            </details>
-        </section>
-
-        <!-- Data Backup & Security -->
-        <section id="data-security">
-            <h2>Data Backup & Security</h2>
-
-            <details>
-                <summary>17. How do Google Drive auto-backups and retention limits work?</summary>
-                <p><strong>Automated Backups:</strong> JobSnapApp automatically backs up your database, photo metadata, custom photo folders, and settings to a secure <em>JobSnapApp Backups</em> folder in your Google Drive.</p>
-                <p><strong>Retention Policy:</strong> In Settings, choose your auto-backup frequency (Daily, Weekly, Monthly) and set a <strong>Backup Retention Limit</strong> (3, 5, 10, 30, or Unlimited). JobSnapApp automatically prunes older archives so your Drive storage stays clean.</p>
-                <p><strong>Data Safety:</strong> Backups use non-destructive SQLite WAL checkpointing, so your live app data remains 100% active and visible while backing up.</p>
-            </details>
-
-            <details>
-                <summary>18. Is my data secure?</summary>
-                <p>Absolutely. Credentials and session tokens are encrypted using Android EncryptedSharedPreferences (AES-256), and all network traffic uses TLS 1.2/1.3 (HTTPS) encryption in transit.</p>
-            </details>
-        </section>
-
-        <!-- Troubleshooting & Support -->
-        <section id="troubleshooting-support">
-            <h2>Troubleshooting & Support</h2>
-
-            <details>
-                <summary>19. What should I do if I encounter an error?</summary>
-                <p>1. Make sure you’re running the latest version of JobSnapApp from Google Play.</p>
-                <p>2. Restart your device.</p>
-                <p class="support-email">If the problem persists, email us at <a href="mailto:brownfamilyapps219@gmail.com">brownfamilyapps219@gmail.com</a> with a brief description and screenshots. We will do our best to help you right away.</p>
-            </details>
-        </section>
-
+<div class="container">
+    <div class="intro">
+        <strong>Need help fast?</strong>
+        <p>Choose a section below. JobSnapApp is designed around each customer and job, so photos, notes, scheduling, crew hours, and invoices stay tied to the right client.</p>
     </div>
 
-    <footer>
-        <p>&copy; 2026 JobSnapApp. All rights reserved. | <a href="/">Home</a> | <a href="faq.html">FAQ</a> | <a href="privacy.html">Privacy Policy</a></p>
-    </footer>
+    <nav class="quick-links" aria-label="Support sections">
+        <a href="#getting-started">Getting Started</a>
+        <a href="#clients">Clients</a>
+        <a href="#photos-notes">Photos & Notes</a>
+        <a href="#scheduling">Scheduling</a>
+        <a href="#crew-hours">Crew Hours</a>
+        <a href="#invoices">Invoices</a>
+        <a href="#backup-restore">Backup & Restore</a>
+        <a href="#preferences">App Preferences</a>
+        <a href="#billing">Subscription & Billing</a>
+        <a href="#privacy-security">Privacy & Security</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+    </nav>
+
+    <section id="getting-started">
+        <h2>Getting Started</h2>
+
+        <details>
+            <summary>What is JobSnapApp?</summary>
+            <p>JobSnapApp is an Android app built for trade contractors who need a simple way to keep customer information, job-site photos, service notes, scheduling, crew hours, and invoices organized by client.</p>
+        </details>
+
+        <details>
+            <summary>Which devices does JobSnapApp support?</summary>
+            <p>JobSnapApp requires <strong>Android 8.0 (API 26) or newer</strong> and is designed for Android phones and tablets.</p>
+        </details>
+
+        <details>
+            <summary>Can I use JobSnapApp without internet access?</summary>
+            <p>Yes. Core client, photo, note, scheduling, crew-hour, and invoice work is designed to remain usable without a constant internet connection. Features that communicate with online services, such as Google Drive backup or Google Play subscription management, require internet access.</p>
+        </details>
+
+        <details>
+            <summary>How do I get started the first time?</summary>
+            <ol>
+                <li>Install JobSnapApp from Google Play.</li>
+                <li>Complete the initial sign-in/setup process.</li>
+                <li>Select all trade categories you work in.</li>
+                <li>Add or import your first client.</li>
+                <li>Add a job photo, schedule work, and create an invoice as needed.</li>
+            </ol>
+            <p>The home screen includes a <strong>Getting Started</strong> checklist to help you learn the main workflow without forcing you through a long tutorial.</p>
+        </details>
+
+        <details>
+            <summary>Can I replay the getting-started guide?</summary>
+            <p>Yes. Open <strong>App Preferences → Help & Learning</strong>. You can review individual help topics or use <strong>Restart Getting Started</strong> to show the home checklist again.</p>
+        </details>
+
+        <details>
+            <summary>Can I change the trades I selected?</summary>
+            <p>Yes. Open the navigation drawer and tap <strong>Edit Trades</strong>. You can add or remove trade categories at any time.</p>
+        </details>
+    </section>
+
+    <section id="clients">
+        <h2>Clients & Contacts</h2>
+
+        <details>
+            <summary>How do I add a new client?</summary>
+            <p>Open the appropriate trade and tap the <strong>+ Add Client</strong> button. Enter the customer information you want to keep, then tap <strong>Save Client</strong>.</p>
+        </details>
+
+        <details>
+            <summary>How do I import someone from my phone contacts?</summary>
+            <p>On the client list, tap the contacts/import button. Android will let you choose a contact, and JobSnapApp will fill in the available name, phone number, and email information for you to review before saving.</p>
+            <p class="note"><strong>Privacy note:</strong> you choose the contact you want to import. JobSnapApp does not need to copy your entire address book into the app.</p>
+        </details>
+
+        <details>
+            <summary>What if the same customer needs work under more than one trade?</summary>
+            <p>Long-press the customer on the client list and choose <strong>Copy to Another Trade</strong>. This is useful when the same customer has, for example, plumbing and HVAC work.</p>
+        </details>
+
+        <details>
+            <summary>How do I edit a client?</summary>
+            <p>Open the client and use the <strong>Edit</strong> action in the bottom navigation bar. You can update their name, company, phone, email, address, and notes.</p>
+        </details>
+
+        <details>
+            <summary>Can I call, email, or navigate to a client from JobSnapApp?</summary>
+            <p>Yes. On the client screen, use the phone, email, or location actions beside the available customer information.</p>
+        </details>
+
+        <details>
+            <summary>Can I share a client or job photos?</summary>
+            <p>Yes. Open the client and use the <strong>Share</strong> action to share customer/job information or selected photos using compatible apps on your device.</p>
+        </details>
+    </section>
+
+    <section id="photos-notes">
+        <h2>Photos, Folders & Notes</h2>
+
+        <details>
+            <summary>How do I add job-site photos?</summary>
+            <p>Open a client and use the large center <strong>Camera</strong> button to take a new job photo. You can also use the upload/import photo action to add pictures that already exist on your device.</p>
+            <p>Photos added from that client stay associated with that customer automatically.</p>
+        </details>
+
+        <details>
+            <summary>How do I organize before-and-after photos or different parts of a job?</summary>
+            <p>Create folders inside the client photo area. You can use folders for before/after photos, estimates, receipts, phases of work, inspections, or any other organization that makes sense for the job.</p>
+        </details>
+
+        <details>
+            <summary>Can I rename, move, or delete photo folders?</summary>
+            <p>Yes. Folder management tools are available from the client photo area so you can keep the job organized as it changes.</p>
+        </details>
+
+        <details>
+            <summary>How do service notes work?</summary>
+            <p>Open a client and add notes in the Service Notes area. Notes stay associated with that customer and can be edited or deleted later.</p>
+        </details>
+
+        <details>
+            <summary>How do I change photo quality?</summary>
+            <p>Open <strong>App Preferences → Photo Quality</strong> and choose the quality level that best balances image detail and storage use for your device.</p>
+        </details>
+    </section>
+
+    <section id="scheduling">
+        <h2>Scheduling & Reminders</h2>
+
+        <details>
+            <summary>How do I schedule work for a client?</summary>
+            <p>Open the client and use the scheduling/reminder action to add planned work. Scheduled items remain tied to the customer so you can tell what the work is and who it belongs to.</p>
+        </details>
+
+        <details>
+            <summary>What are reminders used for?</summary>
+            <p>Reminders let you attach a date/time and notification to customer work so follow-ups, estimates, return visits, and other commitments are less likely to be forgotten.</p>
+        </details>
+
+        <details>
+            <summary>What is Unscheduled Work?</summary>
+            <p><strong>Unscheduled Work</strong> is for work you know needs done but do not yet have a date for. It gives you a place to keep future jobs visible until you are ready to put them on the schedule.</p>
+        </details>
+    </section>
+
+    <section id="crew-hours">
+        <h2>Crew Hours</h2>
+
+        <details>
+            <summary>How do I track employee hours for a job?</summary>
+            <p>Open the client and tap <strong>Crew Hours</strong>. Add or select crew members and record the time worked against that customer/job.</p>
+        </details>
+
+        <details>
+            <summary>Can I export crew hours?</summary>
+            <p>Yes. Crew-hour reporting can be exported to CSV so the data can be opened in spreadsheet software or used as part of your payroll workflow.</p>
+        </details>
+    </section>
+
+    <section id="invoices">
+        <h2>Invoices</h2>
+
+        <details>
+            <summary>How do I set up invoicing?</summary>
+            <p>Open a client and select <strong>Invoices</strong>. The first time you use invoicing, JobSnapApp will ask for your business information, including company name, phone number, address, optional logo, and default tax rate.</p>
+            <p class="note"><strong>Important:</strong> the company information in Invoice Setup is <strong>your business information</strong>, not the customer's information.</p>
+        </details>
+
+        <details>
+            <summary>How do I create an invoice?</summary>
+            <p>Open the client, choose <strong>Invoices</strong>, then create a new invoice. You can edit the invoice number, tax rate, line-item descriptions, quantities, prices, and payment terms/notes before saving.</p>
+        </details>
+
+        <details>
+            <summary>Can I add multiple line items to an invoice?</summary>
+            <p>Yes. Add as many material, labor, or other line items as needed. JobSnapApp calculates the invoice subtotal, tax, and total from the entered items.</p>
+        </details>
+
+        <details>
+            <summary>Can I send or share an invoice?</summary>
+            <p>Yes. Saved invoices can be generated as PDF files and shared using supported apps on your device, including email or other sharing options.</p>
+        </details>
+
+        <details>
+            <summary>Can I mark an invoice as paid?</summary>
+            <p>Yes. Open the invoice list for the client and use the available action to mark the invoice as paid.</p>
+        </details>
+
+        <details>
+            <summary>Can I export invoices for a fiscal year?</summary>
+            <p>Yes. JobSnapApp includes fiscal-year invoice export. You can choose the fiscal-year start month and export the invoices that fall within that accounting year.</p>
+        </details>
+
+        <details>
+            <summary>Does JobSnapApp support QuickBooks exports?</summary>
+            <p>JobSnapApp includes invoice export options for QuickBooks-compatible workflows, including CSV/IIF export where available in the app.</p>
+        </details>
+    </section>
+
+    <section id="backup-restore">
+        <h2>Backup & Restore</h2>
+
+        <details>
+            <summary>What backup options are available?</summary>
+            <p>JobSnapApp supports both <strong>local backup</strong> and <strong>Google Drive backup</strong>. The navigation drawer contains manual backup/restore actions, while <strong>App Preferences</strong> includes automatic Google Drive backup settings.</p>
+        </details>
+
+        <details>
+            <summary>How do automatic Google Drive backups work?</summary>
+            <p>In <strong>App Preferences</strong>, choose an auto-backup frequency and retention limit. You can also choose to perform automatic backups only while connected to Wi-Fi.</p>
+            <p>Retention settings help limit how many older JobSnapApp backup archives remain in Google Drive.</p>
+        </details>
+
+        <details>
+            <summary>What is included in a backup?</summary>
+            <p>JobSnapApp backups are intended to preserve the app data needed to rebuild your working records, including client/job information and supported related records such as folders, photos, scheduling data, crew-hour data, and invoices.</p>
+            <p class="note">For important business records, keep regular backups and confirm that the backup completes successfully before replacing or resetting a device.</p>
+        </details>
+
+        <details>
+            <summary>Can I restore my entire JobSnapApp database?</summary>
+            <p>Yes. Use the appropriate Local Restore or Google Drive Restore option from the navigation drawer and select the backup you want to restore.</p>
+        </details>
+
+        <details>
+            <summary>Can I restore just one client instead of replacing everything?</summary>
+            <p>Yes. Current JobSnapApp restore tools support restoring an individual client from a compatible backup in addition to restoring the full database.</p>
+        </details>
+
+        <details>
+            <summary>What should I do when moving to a new phone?</summary>
+            <ol>
+                <li>Create a fresh backup on the old phone.</li>
+                <li>Install JobSnapApp on the new phone.</li>
+                <li>Use the matching restore option (Google Drive or local backup).</li>
+                <li>Verify your clients, photos, invoices, scheduling, and other important records before clearing the old device.</li>
+            </ol>
+        </details>
+    </section>
+
+    <section id="preferences">
+        <h2>App Preferences</h2>
+
+        <details>
+            <summary>Where did Settings go?</summary>
+            <p>The dedicated settings screen is now called <strong>App Preferences</strong> to distinguish it from the main navigation drawer. This is where you configure things such as photo quality, automatic backups, Help & Learning, and support options.</p>
+        </details>
+
+        <details>
+            <summary>Does JobSnapApp have dark mode?</summary>
+            <p>Yes. The dark-mode switch is available directly from the navigation drawer.</p>
+        </details>
+
+        <details>
+            <summary>How do I send feedback about a translation?</summary>
+            <p>Open <strong>App Preferences</strong> and choose the translation feedback option. This opens an email addressed to Brown Family Apps so you can report awkward wording or incorrect translations.</p>
+        </details>
+    </section>
+
+    <section id="billing">
+        <h2>Subscription & Billing</h2>
+
+        <details>
+            <summary>Does JobSnapApp have a free trial?</summary>
+            <p>Yes. JobSnapApp includes a free trial so you can try the workflow before paying. The current trial and subscription offer shown in Google Play is the authoritative billing offer for your account.</p>
+        </details>
+
+        <details>
+            <summary>What subscription options are available?</summary>
+            <p>JobSnapApp offers subscription options through Google Play. Available monthly/yearly pricing and any introductory offers are displayed in the app and in Google Play before you subscribe.</p>
+        </details>
+
+        <details>
+            <summary>How do I manage or cancel my subscription?</summary>
+            <p>Subscriptions are managed through <strong>Google Play</strong>. You can use JobSnapApp's Manage Subscription action when available, or open Google Play and manage the subscription from your account's subscriptions page.</p>
+        </details>
+
+        <details>
+            <summary>Does uninstalling JobSnapApp cancel my subscription?</summary>
+            <p><strong>No.</strong> Uninstalling an Android app does not automatically cancel a Google Play subscription. Cancel or change the subscription through Google Play.</p>
+        </details>
+    </section>
+
+    <section id="privacy-security">
+        <h2>Privacy & Security</h2>
+
+        <details>
+            <summary>Where is my JobSnapApp data stored?</summary>
+            <p>Your working JobSnapApp records are primarily stored on your device. If you choose to use Google Drive backup, backup archives are also stored in your Google Drive account.</p>
+        </details>
+
+        <details>
+            <summary>Does JobSnapApp require my data to be online all the time?</summary>
+            <p>No. The app is designed to be useful in the field without requiring a constant connection. Online services are used only for features that need them, such as Google Drive, Google Play billing, and other explicitly online functions.</p>
+        </details>
+
+        <details>
+            <summary>How does JobSnapApp protect sensitive app information?</summary>
+            <p>JobSnapApp uses Android platform security APIs and encrypted network connections for supported online services. Keep your device secured with a PIN, password, or biometrics and maintain current backups for your business records.</p>
+        </details>
+    </section>
+
+    <section id="troubleshooting">
+        <h2>Troubleshooting & Support</h2>
+
+        <details>
+            <summary>What should I do if something is not working correctly?</summary>
+            <ol>
+                <li>Make sure JobSnapApp is updated from Google Play.</li>
+                <li>Close and reopen the app.</li>
+                <li>If the issue involves an online feature, confirm that your internet connection is working.</li>
+                <li>If the problem continues, restart the device.</li>
+            </ol>
+        </details>
+
+        <details>
+            <summary>How do I contact JobSnapApp support?</summary>
+            <p class="support-email">Email <a href="mailto:brownfamilyapps219@gmail.com">brownfamilyapps219@gmail.com</a>. Include a short description of what you were doing, what you expected to happen, what actually happened, and screenshots if they help show the problem.</p>
+        </details>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 JobSnapApp. All rights reserved. | <a href="/">Home</a> | <a href="support.html">Support & FAQ</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
 
 </body>
 </html>
